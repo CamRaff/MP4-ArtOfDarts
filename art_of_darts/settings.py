@@ -82,6 +82,16 @@ AUTHENTICATION_BACKENDS = (
 
 SITE_ID = 1 # Used by socialaccount for URL callbacks
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+ACCOUNT_AUTHENTICATION_METHOD: 'username_email' # Authenticate via email or username
+ACCOUNT_EMAIL_REQUIRED = True # Email required for registration 
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory' # Mandatory verification 
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True # Avoids typos
+ACCOUNT_USERNAME_MIN_LENGTH = 4 # Min length of 4 characters
+LOGIN_URL = '/accounts/login/' # URL for logging in
+LOGIN_REDIRECT_URL = '/' # URL redirect post login
+
 WSGI_APPLICATION = 'art_of_darts.wsgi.application'
 
 
