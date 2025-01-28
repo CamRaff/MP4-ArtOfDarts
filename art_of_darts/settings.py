@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'allauth', # Allauth
     'allauth.account', # Allows registrating, login/out, password resets
     'allauth.socialaccount', # Allows social media logins
+    'home', # The home app
 ]
 
 MIDDLEWARE = [
@@ -60,7 +61,10 @@ ROOT_URLCONF = 'art_of_darts.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
