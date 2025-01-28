@@ -6,21 +6,36 @@
 <head>
   
     <!-- Meta tags -->
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block meta %} <!-- allows for meta replacement or extension -->
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% endblock %}
+
+    {% block extra_meta %}
+    {% endblock %}
 
     <!-- CSS  -->
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="materialize_styles/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
-    <link href="materialize_styles/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    {% block corecss %} <!-- allows for css replacement or extension -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <link href="materialize_styles/css/materialize.css" type="text/css" rel="stylesheet" media="screen,projection">
+        <link href="materialize_styles/css/style.css" type="text/css" rel="stylesheet" media="screen,projection">
+    {% endblock %}
+
+    {% block extra_css %}
+    {% endblock %}
 
     <!--  Scripts-->
-    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-    <script src="materialize_styles/js/materialize.js"></script>
-    <script src="materialize_styles/js/init.js"></script>
+    {% block corejs %} <!-- allows for js replacement or extension -->
+        <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script src="materialize_styles/js/materialize.js"></script>
+        <script src="materialize_styles/js/init.js"></script>
+    {% endblock %}
+
+    {% block extra_js %}
+    {% endblock %}
 
     <!-- Page Title -->
-    <title>Art of Darts</title>
+    <title>Art of Darts {% block extra_title %}{% endblock %}</title>
 </head>
 
 <body>
@@ -144,6 +159,10 @@
     <div class="parallax"><img src="background3.jpg" alt="Unsplashed background img 3"></div>
   </div>
 
+    {% if messages %}
+        <div class="message-container"></div>
+    {% endif %}
+
   <footer class="page-footer teal">
     <div class="container">
       <div class="row">
@@ -183,10 +202,8 @@
   </footer>
 
 
-  <!--  Scripts-->
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="materialize_styles/js/materialize.js"></script>
-  <script src="materialize_styles/js/init.js"></script>
+    {% block postloadjs %}
+    {% endblock %}
 
 </body>
 
