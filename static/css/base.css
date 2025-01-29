@@ -37,10 +37,6 @@ body {
     color: #f2edd5;
 }
 
-button.white {
-    color: #f2edd5;
-}
-
 a:hover,
 a p:hover,
 a i:hover,
@@ -48,8 +44,12 @@ a i:hover,
     color: #4db057;
 }
 
+.navbar-toggler-icon {
+    background-color: #f2edd5;
+}
+
 .white {
-    color: #f2edd5;
+    color: #f2edd5 !important;
 }
 
 .black {
