@@ -86,3 +86,11 @@ As this website was designed with darts fans in mind, I decided that I wanted th
 ### #4db057
 
 <img src="readme_images/green_dartboard.png" alt="hover colour" height="300">
+
+### Images
+
+The background for this website was created by AI using [Chat GPT](#https://chatgpt.com/).
+
+<img src="media/homebackground1.webp" alt="background image" height="400">
+
+I like this image as it provides a nice futuristic vibe, and its colours are very vibrant.
