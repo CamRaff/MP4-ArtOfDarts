@@ -6,8 +6,12 @@ body {
     background: url('/media/homebackground1.webp') no-repeat center center fixed;
     background-size: cover;
     background-color: black;
+    font-family: "Trade Winds", serif;
+    font-weight: 400;
+    font-style: normal;
     height: calc(100vh - 164px);
 }
+
 
 #topnav {
     background-color: black !important;
@@ -22,6 +26,7 @@ body {
     width: 1.5rem;
 }
 
+/* custom */
 .logo-font {
     transform: uppercase;
 }
@@ -32,8 +37,44 @@ body {
     color: #f2edd5;
 }
 
+a:hover,
+a p:hover,
+a i:hover,
+.btn:hover {
+    color: #4db057;
+}
+
 .white {
     color: #f2edd5;
+}
+
+.black {
+    background-color: black;
+}
+
+input {
+    background-color: black !important;
+    border-color: #f2edd5 !important;
+}
+
+.shadow {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.input-group-append {
+    background-color: #f2edd5 !important;
+}
+
+.fa-search {
+    color: black;
+}
+
+.fa-search:hover {
+    color: #4db057;
+}
+
+input::placeholder {
+    color: #f2edd5 !important;
 }
 
 .dropdown-menu {
@@ -51,7 +92,7 @@ body {
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
-      max-width: 80%;
+      max-width: 80%; /* widens defualt bootstrap on extra large screens */
     }
   }
   
@@ -66,6 +107,6 @@ body {
       }
   
       .header-container {
-          padding-top: 164px;
+          padding-top: 164px; /* pushes body down to the bottom of the page */
       }
   }
