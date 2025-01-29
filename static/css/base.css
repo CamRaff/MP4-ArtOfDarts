@@ -1,0 +1,71 @@
+html {
+    height:100%;
+}
+
+body {
+    background: url('/media/homebackground1.webp') no-repeat center center fixed;
+    background-size: cover;
+    background-color: black;
+    height: calc(100vh - 164px);
+}
+
+#topnav {
+    background-color: black !important;
+}
+
+/* from Bulma for icons */
+.icon {
+    align-items: center;
+    display:inline-flex;
+    justify-content: center;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+.logo-font {
+    transform: uppercase;
+}
+
+.main-logo-link {
+    width: fit-content;
+    font-size: 1.5rem;
+    color: #f2edd5;
+}
+
+.white {
+    color: #f2edd5;
+}
+
+.dropdown-menu {
+    background-color: black !important;
+}
+
+.dropdown-item {
+    color: #f2edd5;
+}
+
+.border-black {
+    border: 1px solid black !important;
+}
+
+/* Slightly larger container on xl screens */
+@media (min-width: 1200px) {
+    .container {
+      max-width: 80%;
+    }
+  }
+  
+  /* fixed top navbar only on medium and up */
+  @media (min-width: 992px) {
+      .fixed-top-desktop-only {
+          position: fixed;
+          top: 0;
+          right: 0;
+          left: 0;
+          z-index: 1030;
+      }
+  
+      .header-container {
+          padding-top: 164px;
+      }
+  }
