@@ -57,6 +57,10 @@ a i:hover,
     color: #4db057 !important;
 }
 
+a.dropdown-item:hover {
+    color: #f2edd5 !important;
+}
+
 .navbar-toggler-icon {
     background-color: #f2edd5;
 }
@@ -126,11 +130,13 @@ input::placeholder {
     
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 700px) {
     body {
         background: url('/media/homebackground2.webp') no-repeat center center fixed;  /* smaller background image */
     }
-    
+}
+
+@media screen and (max-width: 600px) {    
     h1.logo-font {
         font-size: 1.5rem;
     }

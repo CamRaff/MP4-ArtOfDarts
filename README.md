@@ -94,3 +94,7 @@ The background for this website was created by AI using [Chat GPT](#https://chat
 <img src="media/homebackground1.webp" alt="background image" height="400">
 
 I like this image as it provides a nice futuristic vibe, and its colours are very vibrant.
+
+As the above background featured the dartboard over to the right hand side, I felt like the experience was lost stlightly on smaller devices, so I set a breakpoint of 700px, where I felt like the magic of the first image was lost, and set the below image as the background image for the site.
+
+<img src="media/homebackground2.webp" alt="background image two" height="300">
