@@ -37,6 +37,10 @@ body {
     color: #f2edd5;
 }
 
+.green {
+    background-color: #4db057;
+}
+
 a:hover,
 a p:hover,
 a i:hover,
