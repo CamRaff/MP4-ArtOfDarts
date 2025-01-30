@@ -9,18 +9,16 @@ body {
     font-family: "Trade Winds", serif;
     font-weight: 400;
     font-style: normal;
-    height: calc(100vh - 164px);
+    height: calc(100vh - 225px);
 }
 
-@media screen and (max-width: 520px) {
-    body {
-        height: calc(100vh - 100px);
-    }
-
-    h1 {
-        font-size: 3rem !important;
-    }
-    
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    background-color: black; /* Dark background */
+    text-align: center;
+    padding: 10px;
 }
 
 
@@ -56,7 +54,7 @@ a:hover,
 a p:hover,
 a i:hover,
 .btn:hover {
-    color: #4db057;
+    color: #4db057 !important;
 }
 
 .navbar-toggler-icon {
@@ -112,24 +110,60 @@ input::placeholder {
     background-color: #4db057 !important;
 }
 
+/* edit to push body down and change h1 size */
+@media screen and (max-width: 990px) {
+    body {
+        height: 100vh;
+    }
+
+    h1.logo-font {
+        font-size: 2rem;
+    }
+
+    footer p {
+        font-size: 0.8rem;
+    }
+    
+}
+
+@media screen and (max-width: 600px) {
+    body {
+        background: url('/media/homebackground2.webp') no-repeat center center fixed;  /* smaller background image */
+    }
+    
+    h1.logo-font {
+        font-size: 1.5rem;
+    }
+
+    h4.logo-font {
+        font-size: 1.2rem;
+    }
+
+    footer p {
+        font-size: 0.5rem;
+    }
+    
+}
+
+
 /* Slightly larger container on xl screens */
 @media (min-width: 1200px) {
     .container {
-      max-width: 80%; /* widens defualt bootstrap on extra large screens */
+        max-width: 80%; /* widens defualt bootstrap on extra large screens */
     }
-  }
+}
   
   /* fixed top navbar only on medium and up */
   @media (min-width: 992px) {
-      .fixed-top-desktop-only {
-          position: fixed;
-          top: 0;
-          right: 0;
-          left: 0;
-          z-index: 1030;
-      }
+    .fixed-top-desktop-only {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 1030;
+    }
   
-      .header-container {
-          padding-top: 164px; /* pushes body down to the bottom of the page */
-      }
-  }
+    .header-container {
+        padding-top: 164px; /* pushes body down to the bottom of the page */
+    }
+}
