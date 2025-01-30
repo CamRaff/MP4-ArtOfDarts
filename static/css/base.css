@@ -12,6 +12,17 @@ body {
     height: calc(100vh - 164px);
 }
 
+@media screen and (max-width: 520px) {
+    body {
+        height: calc(100vh - 100px);
+    }
+
+    h1 {
+        font-size: 3rem !important;
+    }
+    
+}
+
 
 #topnav {
     background-color: black !important;
