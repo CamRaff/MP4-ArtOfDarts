@@ -18,14 +18,14 @@ class ProductForm(forms.ModelForm):
         friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
 
         self.fields['category'].choices = friendly_names
-        # self.fields['barrels'] = forms.ChoiceField(
-        #     choices=[(b.id, b.get_shape_display()) for b in Barrel.objects.all()]
-        # )
-        # self.fields['flights'] = forms.ChoiceField(
-        #     choices=[(f.id, f.get_shape_display()) for f in Flight.objects.all()]
-        # )
-        # self.fields['stems'] = forms.ChoiceField(
-        #     choices=[(s.id, s.get_length_display()) for s in Stem.objects.all()]
-        # )
+        self.fields['barrels'] = forms.ChoiceField(
+            choices=[(b.id, b.get_shape_display()) for b in Barrel.objects.all()]
+        )
+        self.fields['flights'] = forms.ChoiceField(
+            choices=[(f.id, f.get_shape_display()) for f in Flight.objects.all()]
+        )
+        self.fields['stems'] = forms.ChoiceField(
+            choices=[(s.id, s.get_length_display()) for s in Stem.objects.all()]
+        )
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded'
