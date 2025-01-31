@@ -10,13 +10,43 @@
 {% endblock %}
 
 {% block content %}
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-12">
-                <hr>
-                <h1 class="logo-font white shadow text-center rounded py-2">All Products</h1>
-                <hr>
-                <div class="col-12 white shadow">{{ products }}</div>
+            <div class="col text-center mt-3">
+                <hr class="w-50 mb-1">
+                <h2 class="logo-font white shadow">Products</h2>
+                <hr class="w-50 mb-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="product-container col-10 offset-1">
+                <div class="row mt-1 mb-2"></div>
+                <div class="row">
+                    {% for product in products %}
+                        <div class="col-sm6 col-md-6 col-lg-4 col-xl-3">
+                            <div class="card shadow h-100">
+                                <a href="">
+                                    <img src="{{ product.image.url }}" alt="{{product.name }}" class="card-img-top img-fluid">
+                                </a>
+                                <div class="card-body pb-0">
+                                    <p class="white mb-0 text-center">{{ product.name }}</p>
+                                </div>
+                                <div class="card-footer shadow">
+                                    <div class="row">
+                                        <div class="col">
+                                            <p class="lead mb-0 text-left font-weight-bold white">£{{ product.price }}</p>
+                                            {% if product.rating %}
+                                                <small class="text-muted float-right"><i class="fas fa-star mr-1">{{ product.rating }}</i></small>
+                                            {% else %}
+                                                <small class="text-muted float-right">No rating</small>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
         </div>
     </div>
