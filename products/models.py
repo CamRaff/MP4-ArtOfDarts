@@ -61,7 +61,7 @@ class Barrel(Product):
 
 class Stem(Product):
     """
-    Dart stem model with length, 
+    Dart stem model with length,
     allowing for a different table and not having
     to inherit unused values
     """
