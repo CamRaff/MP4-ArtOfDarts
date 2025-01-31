@@ -12,11 +12,12 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
+            <div class="col"></div>
             <div class="col text-center mt-3">
-                <hr class="w-50 mb-1">
-                <h2 class="logo-font white shadow">Products</h2>
+                <h2 class="logo-font white shadow rounded mt-3 p-2">Products</h2>
                 <hr class="w-50 mb-1">
             </div>
+            <div class="col"></div>
         </div>
         <div class="row">
             <div class="product-container col-10 offset-1">
@@ -25,20 +26,29 @@
                     {% for product in products %}
                         <div class="col-sm6 col-md-6 col-lg-4 col-xl-3">
                             <div class="card shadow h-100">
-                                <a href="">
+                                {% if product.image %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                                    </a>
+                                {% else %}
+                                    <a href="">
+                                        <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                                    </a>
+                                {% endif %}
+                                <!-- <a href="">
                                     <img src="{{ product.image.url }}" alt="{{product.name }}" class="card-img-top img-fluid">
-                                </a>
+                                </a> -->
                                 <div class="card-body pb-0">
                                     <p class="white mb-0 text-center">{{ product.name }}</p>
                                 </div>
-                                <div class="card-footer shadow">
+                                <div class="card-footer">
                                     <div class="row">
                                         <div class="col">
                                             <p class="lead mb-0 text-left font-weight-bold white">£{{ product.price }}</p>
                                             {% if product.rating %}
-                                                <small class="text-muted float-right"><i class="fas fa-star mr-1">{{ product.rating }}</i></small>
+                                                <small class="text-muted float-right white"><i class="fas fa-star mr-1 white">{{ product.rating }}</i></small>
                                             {% else %}
-                                                <small class="text-muted float-right">No rating</small>
+                                                <small class="text-muted float-right white">No rating</small>
                                             {% endif %}
                                         </div>
                                     </div>
@@ -49,6 +59,7 @@
                 </div>
             </div>
         </div>
+        {% include 'includes/footer.html' %}
     </div>
-{% include 'includes/footer.html' %}
+    <!-- {% include 'includes/footer.html' %} -->
 {% endblock %}
