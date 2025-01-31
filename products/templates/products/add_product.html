@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% load static %}
+
+<!-- {% block page_header %}
+<div class="container header-container">
+    <div class="row">
+        <div class="col"></div>
+    </div>
+{% endblock %} -->
+
+{% block content %}
+<div class="container h-100">
+    <div class="row h-100">
+        <div class="col-12">
+            <hr>
+            <h1 class="logo-font white shadow text-center rounded py-2">Product Management</h1>
+            <h5 class="text-muted white shadow rounded text-center">Add a Product</h5>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+            <form method="POST" enctype="multipart/form-data" class="white shadow p-3">
+                {% csrf_token %}
+                <!-- {{ form|crispy }} -->
+                <button type="submit" class="btn btn-primary green border-black">Add Product</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

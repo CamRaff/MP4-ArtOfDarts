@@ -39,24 +39,24 @@ class FlightAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
-        'shape',
+        'flight_shape',
         'price',
         'image',
     )
 
-    ordering = ('shape',)
+    ordering = ('flight_shape',)
 
 
 class StemAdmin(admin.ModelAdmin):
     list_display = (
         'sku',
         'name',
-        'length',
+        'stem_length',
         'price',
         'image',
     )
 
-    ordering = ('length',)
+    ordering = ('stem_length',)
 
 
 admin.site.register(Product, ProductAdmin)

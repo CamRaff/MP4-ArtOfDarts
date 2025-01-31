@@ -67,7 +67,7 @@ class Stem(Product):
     """
 
     STEM_LENGTHS = [('Short', 'Short'), ('Medium', 'Medium'), ('Long', 'Long')]
-    length = models.CharField(max_length=255, choices=STEM_LENGTHS)
+    stem_length = models.CharField(max_length=255, choices=STEM_LENGTHS)
 
 
 class Flight(Product):
@@ -78,4 +78,4 @@ class Flight(Product):
     """
 
     FLIGHT_SHAPES = [('Standard', 'Standard'), ('Kite', 'Kite')]
-    shape = models.CharField(max_length=255, choices=FLIGHT_SHAPES)
+    flight_shape = models.CharField(max_length=255, choices=FLIGHT_SHAPES)
