@@ -20,7 +20,11 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    """ Abstract base model for all products """
+    """
+    Base model for all products,
+    containing generic information
+    like name, description, price, etc.
+    """
 
     class Meta:
         verbose_name_plural = 'Products'
@@ -44,7 +48,11 @@ class Product(models.Model):
 
 
 class Barrel(Product):
-    """ Dart barrel model with shape and weight """
+    """
+    Dart barrel model with shape and weight,
+    allowing for a different table and not having
+    to inherit unused values
+    """
 
     BARREL_SHAPES = [('Straight', 'Straight'), ('Tapered', 'Tapered')]
     barrel_shape = models.CharField(max_length=255, choices=BARREL_SHAPES)
@@ -52,14 +60,22 @@ class Barrel(Product):
 
 
 class Stem(Product):
-    """ Dart stem model with length """
+    """
+    Dart stem model with length, 
+    allowing for a different table and not having
+    to inherit unused values
+    """
 
     STEM_LENGTHS = [('Short', 'Short'), ('Medium', 'Medium'), ('Long', 'Long')]
     length = models.CharField(max_length=255, choices=STEM_LENGTHS)
 
 
 class Flight(Product):
-    """ Dart flight model with shape """
+    """
+    Dart flight model with shape,
+    allowing for a different table and not having
+    to inherit unused values
+    """
 
     FLIGHT_SHAPES = [('Standard', 'Standard'), ('Kite', 'Kite')]
     shape = models.CharField(max_length=255, choices=FLIGHT_SHAPES)
