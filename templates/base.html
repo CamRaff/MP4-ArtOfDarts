@@ -56,9 +56,9 @@
                 <a href="{% url 'home' %}" class="nav-link main-logo-link logo-font"><strong>Art</strong> of <strong>Darts</strong></a>
             </div>
             <div class="col-12 col-lg-4 my-auto py-1 py-lg-0">
-                <form action="" method="GET">
+                <form action="{% url 'products' %}" method="GET">
                     <div class="input-group w-100">
-                        <input type="text" name="q" class="form-control border rounded-0" placeholder="Get Darting!">
+                        <input type="text" name="q" class="form-control border rounded-0 white" placeholder="Get Darting!">
                         <div class="input-group-append">
                             <button class="form-control btn bg-white border white rounded-0" type="submit">
                                 <span class="icon search">
