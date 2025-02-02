@@ -13,9 +13,29 @@ def all_products(request):
     query = request.GET.get('q')
     category_filter = request.GET.get('category')
     product_type = request.GET.get('product')
+    sort = None
+    direction = None
 
     # Capture current URL for invalid query redirect
     current_url = request.META.get('HTTP_REFERER', reverse('products'))
+
+    # Sorting Products
+    if request.GET:
+        if 'sort' in request.GET:
+            sortkey = request.GET['sort']
+            sort = sortkey
+            if sortkey == 'name':
+                sortkey = 'lower_name'
+                products = products.annotate(lower_name=Lower('name'))
+            if sortkey == 'category':
+                sortkey = 'category__name'
+            if 'direction' in request.GET:
+                direction = request.GET['direction']
+                if direction == 'desc':
+                    sortkey = f'-{sortkey}'
+            products = products.order_by(sortkey)
+
+    current_sorting = f'{sort}_{direction}'
 
     # Filter by Category
     if category_filter:
@@ -62,58 +82,10 @@ def all_products(request):
         'products': products,
         'search_term': query,
         'current_categories': category_filter,
+        'current_sorting': current_sorting,
     }
 
     return render(request, 'products/all_products.html', context)
-
-# def all_products(request):
-#     """ A view to show all products, including sorting and search queries """
-
-#     products = Product.objects.all()
-#     template = 'products/all_products.html'
-#     query = None
-#     category = None
-#     product_type = request.GET.get('product')
-
-#     if request.GET:
-#         if 'category' in request.GET:
-#             categories = request.GET['category'].split(',')
-#             products = products.filter(category__name__in=categories)
-#             categories = Category.objects.filter(name__in=categories)
-
-#         if product_type:
-#             if product_type in ['standard', 'kite']:
-#                 products = Product.objects.filter(
-#                     flight__flight_shape__iexact=product_type
-#                     )
-#             elif product_type in ['tapered', 'straight']:
-#                 products = Product.objects.filter(
-#                     barrel__barrel_shape__iexact=product_type
-#                     )
-#             elif product_type in ['short', 'medium', 'long']:
-#                 products = Product.objects.filter(
-#                     stem__stem_length__iexact=product_type
-#                     )
-
-#         if 'q' in request.GET:
-#             query = request.GET['q']
-#             if not query:
-#                 messages.error(request,
-#                                "You didn't enter any search criteria!")
-#                 return redirect(reverse('products'))
-
-#             queries = (
-#                 Q(name__icontains=query) | Q(description__icontains=query)
-#                 )
-#             products = products.filter(queries)
-
-#     context = {
-#         'products': products,
-#         'search_term': query,
-#         'current_categories': category,
-#     }
-
-#     return render(request, template, context)
 
 
 def product_details(request, product_id):
