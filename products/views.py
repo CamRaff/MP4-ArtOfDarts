@@ -14,6 +14,9 @@ def all_products(request):
     category_filter = request.GET.get('category')
     product_type = request.GET.get('product')
 
+    # Capture current URL for invalid query redirect
+    current_url = request.META.get('HTTP_REFERER', reverse('products'))
+
     # Filter by Category
     if category_filter:
         categories = category_filter.split(',')
@@ -40,10 +43,20 @@ def all_products(request):
             messages.error(request, "You didn't enter any search criteria!")
             return redirect(reverse('products'))
 
-        search_query = (
-            Q(name__icontains=query) | Q(description__icontains=query)
-            )
+        keywords = query.strip().split()
+        search_query = Q()
+
+        for keyword in keywords:
+            search_query &= (
+                Q(name__icontains=keyword) | Q(description__icontains=keyword)
+                )
+
         products = products.filter(search_query)
+
+        # Redirect if no products are found
+        if not products.exists():
+            messages.warning(request, f'No products found for "{query}".')
+            return redirect(current_url)
 
     context = {
         'products': products,
