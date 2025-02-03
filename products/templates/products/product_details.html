@@ -45,6 +45,29 @@
                     {% endif %}
                     </p>
                     <p class="mt-3 pb-2 white text-center">{{ product.description }}</p>
+                    <form action="{% url 'add_to_bag' product.id %}" method="POST" class="form">
+                        {% csrf_token %}
+                        <div class="form-row">
+                            <div class="col-12">
+                                <p class="mt-3 white ml-2 mb-1"><strong>Quantity:</strong></p>
+                                <div class="form-group w-50">
+                                    <div class="input-group ml-2">
+                                        <input type="number" class="form-control qty-input white" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mb-2">
+                                <a href="{% url 'products' %}" class="btn white shadow rounded mt-5">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Back to the darts</span>
+                                </a>
+                                <input type="submit" value="Add to bag!" class="btn border-black white shadow text-uppercase mt-5">
+                            </div>
+                            <input type="hidden" name="redirect_url" value="{{ request.path }}">
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>

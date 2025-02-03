@@ -12,9 +12,9 @@
 {% block content %}
     <div class="container-fluid">
         <div class="row">
-            <div class="col"></div>
-            <div class="col text-center mt-3">
-                <h2 class="logo-font white shadow rounded mt-3 p-2">All Products</h2>
+            <!-- <div class="col"></div> -->
+            <div class="col-sm-10 col-md-8 col-lg-6 mx-auto text-center mt-3">
+                <h2 class="logo-font white shadow rounded mt-3 p-2">Products</h2>
                     {% for c in categories %}
                         <a href="{% url 'products' %}?category={{ c.name }}" class="category-badge text-decoration-none">
                             <span class="p-2 mt-2 badge rounded-0 border border-black white shadow">{{ c.friendly_name }}</span>
@@ -22,7 +22,7 @@
                     {% endfor %}
                 <hr class="w-50 mb-1">
             </div>
-            <div class="col"></div>
+            <!-- <div class="col"></div> -->
         </div>
         
         <div class="row">
