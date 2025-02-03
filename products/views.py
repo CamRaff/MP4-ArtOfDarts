@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
 from django.db.models import Q
+from django.db.models.functions import Lower
 
-from .models import Product
+from .models import Product, Category
 from .forms import ProductForm
 
 
@@ -10,6 +11,7 @@ def all_products(request):
     """ A view to show all products, with sorting and search functionality """
 
     products = Product.objects.all()
+    categories = Category.objects.all()
     query = request.GET.get('q')
     category_filter = request.GET.get('category')
     product_type = request.GET.get('product')
@@ -38,9 +40,10 @@ def all_products(request):
     current_sorting = f'{sort}_{direction}'
 
     # Filter by Category
-    if category_filter:
-        categories = category_filter.split(',')
+    if 'category' in request.GET:
+        categories = request.GET['category'].split(',')
         products = products.filter(category__name__in=categories)
+        categories = Category.objects.filter(name__in=categories)
 
     # Filter by Product Type (Flights, Barrels, Stems)
     if product_type:
@@ -81,8 +84,9 @@ def all_products(request):
     context = {
         'products': products,
         'search_term': query,
-        'current_categories': category_filter,
         'current_sorting': current_sorting,
+        'current_categories': category_filter,
+        'categories': categories,
     }
 
     return render(request, 'products/all_products.html', context)

@@ -30,6 +30,13 @@
                 <div class="product-details-container rounded mb-5 mt-md-5 shadow offset-lg-2">
                     <p class="ml-2 mb-2 pt-1 white">{{ product.name }}</p>
                     <p class="ml-2 mb-2 text-left font-weight-bold white">£ {{ product.price }}</p>
+                    {% if product.category %}
+                        <p class="small mt-1 mb-0 white mb-1 ml-1">
+                            <a href="{% url 'products' %}?category={{ product.category.name }}" class="text-muted white">
+                                <i class="fa-brands fa-dart-lang white"></i> {{ product.category.friendly_name }}
+                            </a>
+                        </p>
+                    {% endif %}
                     <p class="ml-2">
                     {% if product.rating %}
                         <small class="text-muted"><i class="fas fa-star mr-1 white"> {{ product.rating }} / 5</i></small>
