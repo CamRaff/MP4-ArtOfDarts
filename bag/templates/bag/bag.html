@@ -14,7 +14,8 @@
         <div class="row">
             <div class="col">
                 <hr>
-                <h2 class="logo-font mb-4 white shadow">Your Bag</h2>
+                <h2 class="logo-font mb-4 white shadow text-center">Your Bag</h2>
+                <hr>
             </div>
         </div>
         <div class="row">
@@ -24,8 +25,13 @@
 
                     </div>
                 {% else %}
-                    <p class="lead mb-5 white shadow">You haven't added anything to your bag! Go shopping!</p>
-                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded white shadow">Get Darting!</a>
+                    <p class="lead mb-5 white shadow text-center">You haven't added anything to your bag! Go shopping!</p>
+                    <a href="{% url 'products' %}" class="btn btn-outline-black rounded white shadow">
+                        <span class="icon">
+                            <i class="fas fa-chevron-left"></i>
+                        </span>
+                        <span class="text-uppercase">Get back to the darts!</span>
+                    </a>
                 {% endif %}
             </div>
         </div>
