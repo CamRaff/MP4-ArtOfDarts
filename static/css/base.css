@@ -114,6 +114,18 @@ input::placeholder {
     background-color: #4db057 !important;
 }
 
+.btt-button {
+    height: 60px;
+    width: 60px;
+    position: fixed;
+    bottom: 120px;
+    right: 20px;
+}
+
+.btt-link {
+    cursor: pointer;
+}
+
 /* edit to push body down and change h1 size */
 @media screen and (max-width: 990px) {
     body {

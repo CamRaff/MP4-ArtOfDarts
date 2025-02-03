@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount',  # Allows social media logins
     'home',  # The home app
     'products',  # The products app
+    'bag',  # The bag app
 
     # Crispy Forms
     'crispy_forms',
