@@ -22,7 +22,42 @@
             <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
                 {% if bag_items %}
                     <div class="table-responsive rounded">
-
+                        <table class=" white table table-striped shadow table-bordered">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Product</th>
+                                    <th scope="col"></th>
+                                    <th scope="col">Quantity</th>
+                                    <th scope="col">Price</th>
+                                    <th scope="col">Subtotal</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in bag_items %}
+                                    <tr>
+                                        <td class="p-3 w-25">
+                                            <img src="{{ item.product.image.url }}" alt="" class="img-fluid rounded">
+                                        </td>
+                                        <td class="p-3">{{ item.product.name }}</td>
+                                        <td class="p-3">{{ item.quantity }}</td>
+                                        <td class="p-3">£{{ item.product.price }}</td>
+                                        <td class="p-3"></td>
+                                    </tr>
+                                {% endfor %}
+                                <tr>
+                                    <td colspan="5" class="pt-3 text-right">
+                                        <h6 class="white">Bag Total: £{{ total|floatformat:2 }}</h6>
+                                        <h6 class="white">Delivery: ${{ delivery|floatformat:2 }}</h6>
+                                        <h4 class="white mt-2">Order Total: £{{ grand_total|floatformat:2 }}</h4>
+                                        {% if free_delivery_delta > 0 %}
+                                        <p class="mb-1 text-danger">
+                                            You could get free delivery if you spend <strong>£{{ free_delivery_delta }}</strong>more!
+                                        </p>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 {% else %}
                     <p class="lead mb-5 white shadow text-center">You haven't added anything to your bag! Go shopping!</p>
@@ -36,5 +71,5 @@
             </div>
         </div>
     </div>
-{% include 'includes/footer.html' %}
+<!-- {% include 'includes/footer.html' %} -->
 {% endblock %}
