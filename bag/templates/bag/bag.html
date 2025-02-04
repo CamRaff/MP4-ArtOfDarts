@@ -39,7 +39,41 @@
                                             <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
                                         </td>
                                         <td class="p-3">{{ item.product.name }}<hr>{{ item.product_type }}</td>
-                                        <td class="p-3">{{ item.quantity }}</td>
+                                        <td class="p-3">
+                                            <form action="" method="POST" class="form update-form">
+                                                {% csrf_token %}
+                                                <div class="form-row">
+                                                    <div class="col-12">
+                                                        <p class="mt-3 white ml-2 mb-1"><strong>Quantity:</strong></p>
+                                                        <div class="form-group">
+                                                            <div class="input-group">
+                                                                <div class="input-group-prepend">
+                                                                    <button type="button" class="decrement-qty btn btn-sm border-black rounded white mr-1 shadow" data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                                        <span>
+                                                                            <i class="fas fa-sm fa-minus"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                                <input type="number" class="form-control qty-input white" name="quantity" value="{{ item.quantity }}" min="1" max="99" data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                                <div class="input-group-prepend">
+                                                                    <button type="button" class="increment-qty btn btn-sm border-black rounded white shadow" data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                                        <span>
+                                                                            <i class="fas fa-sm fa-plus"></i>
+                                                                        </span>
+                                                                    </button>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                            </form>
+                                            <div class="col">
+                                                <a class="update-link white"><small>Update</small></a>
+                                                <a class="remove-item text-danger white float-right" id="remove_{{ item.item_id }}"><small>Remove All</small></a>
+                                            </div>
+                                            <!-- <a class="update-link white"><small>Update</small></a>
+                                            <hr>
+                                            <a class="remove-item text-danger white" id="remove_{{ item.item_id }}"><small>Remove All</small></a> -->
+                                        </td>
                                         <td class="p-3">£{{ item.product.price }}</td>
                                         <td class="p-3"></td>
                                     </tr>
@@ -72,4 +106,9 @@
         </div>
     </div>
 <!-- {% include 'includes/footer.html' %} -->
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}
