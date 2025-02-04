@@ -52,7 +52,21 @@
                                 <p class="mt-3 white ml-2 mb-1"><strong>Quantity:</strong></p>
                                 <div class="form-group w-50">
                                     <div class="input-group ml-2">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="decrement-qty btn border-black rounded white mr-1 shadow" data-item_id="{{ product.id }}" id="decrement-qty_{{ product.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-minus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                         <input type="number" class="form-control qty-input white" name="quantity" value="1" min="1" max="99" data-item_id="{{ product.id }}" id="id_qty_{{ product.id }}">
+                                        <div class="input-group-prepend">
+                                            <button type="button" class="increment-qty btn border-black rounded white shadow" data-item_id="{{ product.id }}" id="increment-qty_{{ product.id }}">
+                                                <span class="icon">
+                                                    <i class="fas fa-plus"></i>
+                                                </span>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -73,4 +87,9 @@
         </div>
     </div>
     {% include 'includes/footer.html' %}
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{% include 'products/includes/quantity_input_script.html' %}
 {% endblock %}

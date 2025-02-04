@@ -21,17 +21,11 @@ def view_bag(request):
             except Stem.DoesNotExist:
                 try:
                     flight = Flight.objects.get(pk=product.pk)
-                    product_type = f'{flight.get_flight_shape_display()} Flight'
+                    product_type = (
+                        f'{flight.get_flight_shape_display()} Flight'
+                        )
                 except Flight.DoesNotExist:
                     product_type = 'Unknown Type'
-        # if isinstance(product, Barrel):
-        #     product_type = f'{product.get_barrel_shape_display()} Barrel'
-        # elif isinstance(product, Stem):
-        #     product_type = f'{product.get_stem_length_display()} Stem'
-        # elif isinstance(product, Flight):
-        #     product_type = f'{product.get_flight_shape_display()} Flight'
-        # else:
-        #     product_type = 'Unknown Type'
 
         bag_items.append({
             'product': product,
@@ -59,5 +53,4 @@ def add_to_bag(request, item_id):
         bag[item_id] = quantity
 
     request.session['bag'] = bag
-    # print(request.session['bag'])
     return redirect(redirect_url)

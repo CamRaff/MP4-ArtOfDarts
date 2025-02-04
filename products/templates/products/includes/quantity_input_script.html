@@ -1,0 +1,31 @@
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log('Script is running'); // Checkpoint
+
+        $('.increment-qty').click(function (e) {
+            e.preventDefault();
+            var inputField = $(this).closest('.input-group').find('.qty-input');
+            var currentValue = parseInt(inputField.val()) || 0;
+            var maxValue = parseInt(inputField.attr('max')) || 99;
+
+            console.log('Increment clicked', currentValue); // Debug line
+
+            if (currentValue < maxValue) {
+                inputField.val(currentValue + 1); // Disable plus button if value is 99
+            }
+        });
+
+        $('.decrement-qty').click(function (e) {
+            e.preventDefault();
+            var inputField = $(this).closest('.input-group').find('.qty-input');
+            var currentValue = parseInt(inputField.val()) || 1;
+            var minValue = parseInt(inputField.attr('min')) || 1;
+
+            console.log('Decrement clicked', currentValue); // Debug line
+
+            if (currentValue > minValue) {
+                inputField.val(currentValue - 1); // Disable minus button if value is 1
+            }
+        });
+    });
+</script>
