@@ -27,7 +27,6 @@ class BarrelAdmin(admin.ModelAdmin):
         'sku',
         'name',
         'barrel_shape',
-        'weight',
         'price',
         'image',
     )

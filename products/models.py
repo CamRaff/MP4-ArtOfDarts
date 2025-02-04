@@ -56,7 +56,6 @@ class Barrel(Product):
 
     BARREL_SHAPES = [('Straight', 'Straight'), ('Tapered', 'Tapered')]
     barrel_shape = models.CharField(max_length=255, choices=BARREL_SHAPES)
-    weight = models.DecimalField(max_digits=4, decimal_places=1)
 
 
 class Stem(Product):
