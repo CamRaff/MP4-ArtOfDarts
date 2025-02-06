@@ -71,13 +71,13 @@
                                 </div>
                             </div>
                             <div class="col-12 mb-2">
-                                <a href="{% url 'products' %}" class="btn white shadow rounded mt-5">
+                                <a href="{% url 'products' %}" class="btn white shadow rounded mt-5 add-back">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Back to the darts</span>
                                 </a>
-                                <input type="submit" value="Add to bag!" class="btn border-black white shadow text-uppercase mt-5">
+                                <input type="submit" value="Add to bag!" class="btn border-black white shadow text-uppercase mt-5 add-back">
                             </div>
                             <input type="hidden" name="redirect_url" value="{{ request.path }}">
                         </div>
@@ -85,6 +85,7 @@
                 </div>
             </div>
         </div>
+        <div class="row product-padding"></div>
     </div>
     {% include 'includes/footer.html' %}
 {% endblock %}

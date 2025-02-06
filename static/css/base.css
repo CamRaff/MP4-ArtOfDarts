@@ -12,6 +12,15 @@ body {
     height: calc(100vh - 164px);
 }
 
+.home-container {
+    padding-top: 60px;
+}
+
+
+.product-padding {
+    padding-bottom: 60px;
+}
+
 .footer {
     position: relative;
     bottom: 0;
@@ -122,7 +131,9 @@ input::placeholder {
     right: 20px;
 }
 
-.btt-link {
+.btt-link, 
+.update-link,
+.remove-item {
     cursor: pointer;
 }
 
@@ -138,6 +149,10 @@ input::placeholder {
 
     footer p {
         font-size: 0.8rem;
+    }
+
+    .home-container {
+        padding-top: 25px !important;
     }
     
 }
@@ -184,6 +199,7 @@ input::placeholder {
     .header-container {
         padding-top: 164px; /* pushes body down to the bottom of the page */
     }
+
 }
 
 /* Push body down on mobile */
@@ -194,5 +210,9 @@ input::placeholder {
 
     body {
         height: calc(100vh - 116px);
+    }
+
+    .home-container {
+        padding-top: 15px;
     }
 }
