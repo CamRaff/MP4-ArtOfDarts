@@ -76,9 +76,6 @@
                                                 <a type="button" class="update-link white"><small>Update</small></a>
                                                 <a type="button" class="remove-item text-danger white float-right" id="remove_{{ item.product.id }}"><small>Remove All</small></a>
                                             </div>
-                                            <!-- <a class="update-link white"><small>Update</small></a>
-                                            <hr>
-                                            <a class="remove-item text-danger white" id="remove_{{ item.item_id }}"><small>Remove All</small></a> -->
                                         </td>
                                         <td class="p-3">£{{ item.product.price }}</td>
                                         <td class="p-3">£{{ item.product.price | calc_subtotal:item.quantity }}</td>
