@@ -152,6 +152,12 @@ input::placeholder {
     height: 5px;
 }
 
+.bag-notification-wrapper{
+    height: 100px;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 /* edit to push body down and change h1 size */
 @media screen and (max-width: 990px) {
     body {

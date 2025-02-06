@@ -1,5 +1,4 @@
-<div class="toast custom-toast rounded border-top-0" role ="alert" data-autohide="false">
-    <div class="arrow-up arrow-success white"></div>
+<div class="toast custom-toast rounded black border-top-0" role="alert" data-autohide="false">
     <div class="w-100 toast-capper rounded-0 bg-success"></div>
     <div class="toast-header black white rounded-0">
         <strong class="mr-auto">Success</strong>
@@ -7,7 +6,49 @@
             <span aria-hidden="true">&times;</span>
         </button>
     </div>
-    <div class="toast-body shadow white">
-        {{ message }}
+    <div class="toast-body white">
+        <div class="row">
+            <div class="col">
+                {{ message }}
+                <hr class="mt-1 mb-3 white">
+            </div>
+        </div>
+            {% if grand_total %}
+            <p class="logo-font white py-1">Your bag: ( {{ product_count }} items )</p>
+            <div class="bag-notification-wrapper">
+                {% for item in bag_items %}
+                <div class="row">
+                    <div class="col-3 my-1">
+                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="w-100">
+                    </div>
+                    <div class="col-3 my-1">
+                        <p class="my-0 small white"><strong>{{ item.product.name }}</strong></p>
+                        <p class="my-0 small text-muted white">Qty: {{ item.quantity }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="row">
+                <div class="col">
+                    <strong>
+                        <p class="mt-3 mb-1 white">
+                            Total{% if free_delivery_delta > 0 %} (Exc. Delivery){% endif %}: <span class="float-right">£{{ grand_total|floatformat:2 }}</span>
+                        </p>
+                    </strong>
+                    {% if free_delivery_delta > 0 %}
+                    <p class="mb-0 p-2 bg-danger shadow white text-center">
+                        Spend <strong>£{{ free_delivery_delta }}</strong> more for free delivery!
+                    </p>
+                    {% endif %}
+                    <a href="{% url 'view_bag' %}" class="btn btn-block rounded-0 white mt-2">
+                        <span class="text-uppercase">Go to Secure Checkout</span>
+                        <span class="icon">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            {% endif %}
+        </div>
     </div>
 </div>
