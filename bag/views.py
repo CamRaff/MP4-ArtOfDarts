@@ -54,12 +54,12 @@ def add_to_bag(request, item_id):
     item_id = str(item_id)
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
-        messages.error(
-            request, f'Successfully added {product.name} to your shopping bag'
+        messages.success(
+            request, f'Added {quantity} more of {product.name} to your bag'
         )
     else:
         bag[item_id] = quantity
-        messages.error(
+        messages.success(
             request, f'Successfully added {product.name} to your shopping bag'
         )
 
@@ -70,12 +70,15 @@ def add_to_bag(request, item_id):
 def adjust_bag(request, item_id):
     """ Adjust the quantity of a desired item in shopping bag """
 
-    # product = get_object_or_404(Product, pk=item_id)
+    product = get_object_or_404(Product, pk=item_id)
     quantity = int(request.POST.get('quantity'))
     bag = request.session.get('bag', {})
 
     if quantity > 0:
         bag[str(item_id)] = quantity
+        messages.success(
+            request, f'Updated the amount of {product.name} in your bag'
+        )
     else:
         bag.pop(str(item_id), None)
 
@@ -85,11 +88,19 @@ def adjust_bag(request, item_id):
 
 def remove_from_bag(request, item_id):
     """ Remove the item from the shopping bag """
+
+    product = get_object_or_404(Product, pk=item_id)
     try:
         bag = request.session.get('bag', {})
 
         bag.pop(str(item_id), None)
         request.session['bag'] = bag
+        messages.success(
+            request, f'Successfully removed {product.name} from your bag'
+            )
         return HttpResponse(status=200)
     except Exception as e:
+        messages.error(
+            request, f'Error removing item: {e}'
+            )
         return HttpResponse(status=500)
