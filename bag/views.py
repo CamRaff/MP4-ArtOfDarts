@@ -54,11 +54,14 @@ def add_to_bag(request, item_id):
     item_id = str(item_id)
     if item_id in list(bag.keys()):
         bag[item_id] += quantity
+        messages.error(
+            request, f'Successfully added {product.name} to your shopping bag'
+        )
     else:
         bag[item_id] = quantity
-        messages.success(
+        messages.error(
             request, f'Successfully added {product.name} to your shopping bag'
-            )
+        )
 
     request.session['bag'] = bag
     return redirect(redirect_url)
