@@ -2,6 +2,11 @@
 {% load static %}
 {% load bagtools %}
 
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
+{% endblock %}
+
+
 {% block page_header %}
 <div class="container header-container">
     <div class="row">
@@ -20,18 +25,18 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-12 col-lg-6 mb-5 order-lg-last rounded">
-                <p class="white shadow text-center">Order Summary ({{ product_count }})</p>
-                <div class="row shadow rounded ">
+            <div class="col-12 col-lg-6 mb-5 order-lg-last">
+                <p class="white shadow text-center rounded">Order Summary ({{ product_count }})</p>
+                <div class="row shadow">
                     <div class="col-7 offset-2">
-                        <p class="mb-1 mt-0 small text-muted white">Item(s)</p>
+                        <p class="mb-1 mt-1 small text-muted white">Item(s)</p>
                     </div>
                     <div class="col-3 text-right">
-                        <p class="mb-1 mt-0 small text-muted white">Subtotal</p>
+                        <p class="mb-1 mt-1 small text-muted white">Subtotal</p>
                     </div>
                 </div>
                 {% for item in bag_items %}
-                    <div class="row shadow pt-2 pb-2 rounded">
+                    <div class="row shadow pt-2 pb-2">
                         <div class="col-2 mb-1">
                             <a href="{% url 'product_details' item.product.id %}">
                                 {% if item.product.image %}
@@ -51,13 +56,13 @@
                     </div>
                 {% endfor %}
                 <hr>
-                <div class="row text-right">
-                    <div class="col-7 offset-2 shadow">
-                        <p class="my-0 white">Order Total:</p>
+                <div class="row text-left">
+                    <div class="col-3 offset-6 shadow pt-1">
+                        <p class="my-0 white">Total:</p>
                         <p class="my-0 white">Delivery:</p>
                         <p class="my-0 white">Grand Total:</p>
                     </div>
-                    <div class="col-3 shadow">
+                    <div class="col-3 shadow text-right pt-1">
                         <p class="my-0 white">£{{ total | floatformat:2 }}</p>
                         <p class="my-0 white">£{{ delivery | floatformat:2 }}</p>
                         <p class="my-0 white"><strong>£{{ grand_total | floatformat:2 }}</strong></p>
@@ -83,7 +88,7 @@
                         <div class="form-check form-check-inline float-right mr-0 shadow">
                             {% if user.is_authenticated %}
                                 <input type="checkbox" class="form-check-input ml-2 mr-2" id="id-save-info" name="save-info" checked>
-                                <label class="form-check-label white" for="id_save-info">Save this delivery information to my profile</label>
+                                <label class="form-check-label white pr-1" for="id_save-info">Save this delivery information to my profile</label>
                             {% else %}
                                 <label for="id_save_info" class="form-check-label white shadow rounded px-2">
                                     <a href="{% url 'account_signup' %}" class="text-success">Create an account</a> or
@@ -92,21 +97,19 @@
                             {% endif %}
                         </div>
                     </fieldset>
-                    <fieldset class="rounded px-3 mb-5">
+                    <fieldset class="rounded px-3 mb-3">
                         <legend class="fieldset-label small white px-2 w-auto shadow">Payment</legend>
-                        <div class="mb-3" id="card-element"></div>
+                        <div class="mb-3 shadow p-2" id="card-element"></div>
                         <div class="mb-3 text-danger" id="card-errors" role="alert"></div>
                     </fieldset>
-                    <div class="col-5 offset-7">
-                        <p class="small text-success shadow mb-0 pl-4">
-                            <span class="icon">
-                                <i class="fas fa-exclamation-circle white"></i>
-                            </span>
-                            <span class="">Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
-                        </p>
-                    </div>
+                    <p class="small text-success shadow mb-2 text-center">
+                        <span class="icon">
+                            <i class="fas fa-exclamation-circle white"></i>
+                        </span>
+                        <span class="">Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
+                    </p>
                     <div class="text-right mt-2 mb-2">
-                        <a href="{% url 'view_bag' %}" class="btn shadow rounded white">
+                        <a href="{% url 'view_bag' %}" class="btn shadow rounded white float-left">
                             <span class="icon">
                                 <i class="fas fa-chevron-left white"></i>
                             </span>
@@ -125,4 +128,11 @@
         </div>
     </div>
 <!-- {% include 'includes/footer.html' %} -->
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+{{ stripe_public_key|json_script:"id_stripe_public_key" }}
+{{ client_secret|json_script:"id_client_secret" }}
+    <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
 {% endblock %}
