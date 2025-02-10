@@ -95,6 +95,22 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <div class="row">
+                            <div class="col">
+                                <a href="{% url 'products' %}" class="btn rounded white shadow">
+                                    <span class="icon">
+                                        <i class="fas fa-chevron-left"></i>
+                                    </span>
+                                    <span class="text-uppercase">Back to the darts!</span>
+                                </a>
+                                <a href="{% url 'checkout' %}" class="btn rounded white shadow float-right">
+                                    <span class="icon">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <span class="text-uppercase">Secure Checkout</span>
+                                </a>
+                            </div>
+                        </div>
                     </div>
                 {% else %}
                     <p class="lead mb-5 white shadow text-center">You haven't added anything to your bag! Go shopping!</p>

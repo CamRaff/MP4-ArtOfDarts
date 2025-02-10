@@ -23,6 +23,7 @@ class OrderForm(forms.ModelForm):
         and set autofocus on first field
         """
         super().__init__(*args, **kwargs)
+        self.fields['postcode'].required = True
         placeholders = {
             'full_name': 'Full Name',
             'email': 'Email Address',
@@ -40,5 +41,6 @@ class OrderForm(forms.ModelForm):
             else:
                 placeholder = placeholders[field]
             self.fields[field].widget.attrs['placeholder'] = placeholder
-            self.fields[field].widget.attrs['class'] = 'stripe-style-input'
+            self.fields[field].widget.attrs['class'] = (
+                'stripe-style-input white')
             self.fields[field].label = False
