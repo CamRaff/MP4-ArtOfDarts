@@ -28,7 +28,6 @@ class Product(models.Model):
 
     class Meta:
         verbose_name_plural = 'Products'
-        # abstract = True
 
     category = models.ForeignKey('Category', related_name='products',
                                  null=True, blank=True,

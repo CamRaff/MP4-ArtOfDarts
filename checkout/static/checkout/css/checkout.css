@@ -5,11 +5,10 @@
     padding: 10px 12px;
     border: 1px solid #f2edd5 !important;
     border-radius: 4px;
-    /* background-color: black; */
     box-shadow: 0 1px 3px 0 #f2edd5;
     -webkit-transition: box-shadow 150ms ease;
     transition: box-shadow 150ms ease;
-    font-family: "Trade Winds", serif;
+    /* font-family: "Trade Winds", serif; */
 }
 
 .StripeElement--focus,
@@ -34,4 +33,15 @@
     color: #f2edd5;
     position: relative;
     right: .5rem;
+}
+
+.order-box {
+    height: 50vh;
+    overflow-y: auto;
+}
+
+@media (max-width: 700px) {
+    .order-box {
+        height: 20vh;
+    }
 }

@@ -20,14 +20,14 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-12 col-md-10 col-lg-8 mx-auto">
+            <div class="col-sm-12 col-md-10 col-lg-10 mx-auto">
                 {% if bag_items %}
                     <div class="table-responsive rounded">
-                        <table class=" white table table-striped shadow table-bordered">
+                        <table class="white table table-striped shadow table-bordered">
                             <thead>
                                 <tr>
                                     <th scope="col">Product</th>
-                                    <th scope="col"></th>
+                                    <th scope="col-sm-1"></th>
                                     <th scope="col">Quantity</th>
                                     <th scope="col">Price</th>
                                     <th scope="col">Subtotal</th>
@@ -39,7 +39,7 @@
                                         <td class="p-3 w-25">
                                             <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="img-fluid rounded">
                                         </td>
-                                        <td class="p-3">{{ item.product.name }}<hr>{{ item.product_type }}</td>
+                                        <td class="p-3 sm-p-1">{{ item.product.name }}<hr>{{ item.product_type }}</td>
                                         <td class="p-3">
                                             <form action="{% url 'adjust_bag' item.product.id %}" method="POST" class="form update-form">
                                                 {% csrf_token %}
@@ -96,7 +96,7 @@
                             </tbody>
                         </table>
                         <div class="row">
-                            <div class="col">
+                            <div class="col mb-5">
                                 <a href="{% url 'products' %}" class="btn rounded white shadow">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
@@ -124,7 +124,7 @@
             </div>
         </div>
     </div>
-<!-- {% include 'includes/footer.html' %} -->
+{% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block postloadjs %}
