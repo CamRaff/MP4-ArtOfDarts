@@ -109,8 +109,12 @@
                     </fieldset>
                     <fieldset class="rounded px-3 mb-3">
                         <legend class="fieldset-label small white px-2 w-auto shadow">Payment</legend>
+                        <!-- Stripe Card Element -->
                         <div class="mb-3 shadow p-2" id="card-element"></div>
+                        <!-- For form error displays -->
                         <div class="mb-3 text-danger shadow" id="card-errors" role="alert"></div>
+                        <!-- For passing the client secret to the view allowing for acquisition of the payment intent id-->
+                        <input type="hidden" name="client_secret" value="{{ client_secret }}">
                     </fieldset>
                     <p class="small text-success shadow mb-2 text-center">
                         <span class="icon">
