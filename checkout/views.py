@@ -121,7 +121,7 @@ def checkout(request):
 def checkout_success(request, order_number):
     """ Handle successful checkouts """
 
-    save_info = request.session.get('save_info')
+    save_info = request.session.get('save_info')  # noqa
     order = get_object_or_404(Order, order_number=order_number)
 
     messages.success(request, f'Your order has been successfully processed! \
