@@ -158,6 +158,21 @@ input::placeholder {
     overflow-y: auto;
 }
 
+/* Allauth form CSS */
+.allauth-form-inner-content input {
+    color:#f2edd5 !important;
+    margin-top: 1rem !important;
+}
+
+.allauth-form-inner-content label {
+    display: none !important;
+}
+
+.allauth-form-inner-content input::placeholder {
+    color: #f2edd5 !important;
+
+}
+
 /* edit to push body down and change h1 size */
 @media screen and (max-width: 990px) {
     body {
