@@ -21,9 +21,13 @@ body {
     padding-bottom: 60px;
 }
 
+.profile-padding {
+    padding-bottom: 210px;
+}
+
 .footer {
     position: relative;
-    bottom: 0;
+    bottom: 0 !important;
     display: block;
     width: 100%;
     background-color: black; /* Dark background */
