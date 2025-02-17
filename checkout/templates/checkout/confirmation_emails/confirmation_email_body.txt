@@ -1,0 +1,22 @@
+Hello {{ order.full_name }}!
+
+This is an email to confirm your purchase from Art of Darts. All of the relevant information is below:
+
+Order Number: {{ order.order_number }}
+Order Date: {{ order.date }}
+
+Order Total: £{{ order.order_total }}
+Delivery: £{{ order.delivery_cost }}
+Grand Total: £{{ order.grand_total }}
+
+Your order will be shipped to {{ order.street_address1 }}.
+
+We have your phone number on file as {{ order.phone_number }}. 
+
+If you have any questions, please feel free to contact us at {{ contact_email }}.
+
+Thank you for your order, and best of luck with your arrows! 
+
+Sincerely, 
+
+Art of Darts Team.
