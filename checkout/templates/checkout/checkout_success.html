@@ -152,12 +152,21 @@
         </div>
         <div class="row">
             <div class="col-12 col-lg-7 text-right">
-                <a href="{% url 'products' %}" class="btn rounded my-2 white shadow">
-                    <span class="icon">
-                        <i class="fa-brands fa-dart-lang white"></i>
-                    </span>
-                    <span class="text-uppercase white btn ml-0">Why not fetch some more supplies?</span>
-                </a>
+                {% if from_profile %}
+                    <a href="{% url 'profile' %}" class="btn rounded my-2 white shadow">
+                        <span class="icon">
+                            <i class="fa-brands fa-dart-lang white"></i>
+                        </span>
+                        <span class="text-uppercase white btn ml-0">Back to Profile</span>
+                    </a>
+                {% else %}
+                    <a href="{% url 'products' %}" class="btn rounded my-2 white shadow">
+                        <span class="icon">
+                            <i class="fa-brands fa-dart-lang white"></i>
+                        </span>
+                        <span class="text-uppercase white btn ml-0">Why not fetch some more supplies?</span>
+                    </a>
+                {% endif %}
             </div>
         </div>
     </div>

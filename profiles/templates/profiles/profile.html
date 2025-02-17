@@ -21,6 +21,7 @@
                 <hr>
                 <h2 class="logo-font mb-4 white shadow text-center">My Profile</h2>
                 <hr>
+                <p class="white shadow rounded text-center">This is the user profile for: {{ user }}</p>
             </div>
         </div>
         <div class="row">
@@ -34,10 +35,41 @@
             </div>
             <div class="col-12 col-lg-6">
                 <p class="white rounded shadow text-center">Order History</p>
-                {{ orders }}
+                <div class="order-history table-responsive">
+                    <table class="table table-sm shadow white rounded">
+                        <thead>
+                            <th>Order Number</th>
+                            <th>Date</th>
+                            <th>Items</th>
+                            <th>Total</th>
+                        </thead>
+                        <tbody>
+                            {% for order in orders %}
+                                <tr>
+                                    <td>
+                                        <a href="{% url 'order_history' order.order_number %}" title="{{ order.order_number }}" class="white">
+                                            {{ order.order_number|truncatechars:6 }}
+                                        </a>
+                                    </td>
+                                    <td>{{ order.date }}</td>
+                                    <td>
+                                        <ul class="list-unstyled">
+                                            {% for item in order.lineitems.all %}
+                                                <li class="small">
+                                                    {{ item.product.name }} x {{ item.quantity }}
+                                                </li>
+                                            {% endfor %}
+                                        </ul>
+                                    </td>
+                                    <td>£{{ order.grand_total }}</td>
+                                </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
     <div class="profile-padding"></div>
-    {% include 'includes/footer.html' %}
+    <!-- {% include 'includes/footer.html' %} -->
 {% endblock %}

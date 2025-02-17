@@ -1,0 +1,4 @@
+.order-history {
+    max-height: 416px; /* this is the height of the table parallel  */
+    overflow-y: auto;
+}
