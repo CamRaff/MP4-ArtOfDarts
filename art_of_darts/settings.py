@@ -113,6 +113,15 @@ AUTHENTICATION_BACKENDS = (
 SITE_ID = 1  # Used by socialaccount for URL callbacks
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+# EMAIL_BACKEND = 'art_of_darts.email_backend.FixedEmailBackend'
+# EMAIL_HOST = 'smtp.office365.com'
+# EMAIL_PORT = 587
+# EMAIL_USE_TLS = True
+# EMAIL_USE_SSL = False
+# EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', '')
+# EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', '')
+# DEFAULT_FROM_EMAIL = 'Art of Darts <cameron.rafferty@hotmail.co.uk>'
+
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'  # Authentication
 ACCOUNT_EMAIL_REQUIRED = True  # Email required for registration
@@ -194,7 +203,7 @@ STRIPE_CURRENCY = 'gbp'
 STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
 STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
 STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-DEFAULT_FROM_EMAIL = ''
+DEFAULT_FROM_EMAIL = 'cameron.rafferty@hotmail.co.uk'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
