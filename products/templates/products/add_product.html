@@ -82,33 +82,4 @@
         }
     });
 </script>
-
-
-<!-- <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        const categorySelect = document.querySelector('[name="category"]');
-
-    toggleFields(categorySelect.value);
-
-      
-    categorySelect.addEventListener('change', function() {
-        const category = categorySelect.value;
-        toggleFields(category);
-    });
-  
-    function toggleFields(category) {
-        document.getElementById('barrel-fields').style.display = 'none';
-        document.getElementById('stem-fields').style.display = 'none';
-        document.getElementById('flight-fields').style.display = 'none';
-
-        if (category === 'Barrels') {
-            document.getElementById('barrel-fields').style.display = 'block';
-        } else if (category === 'Shafts') {
-            document.getElementById('stem-fields').style.display = 'block';
-        } else if (category === 'Flights') {
-            document.getElementById('flight-fields').style.display = 'block';
-        }
-    }
-    });
-</script> -->
 {% endblock %}
