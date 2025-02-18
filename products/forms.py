@@ -9,6 +9,12 @@ class ProductForm(forms.ModelForm):
         model = Product
         fields = '__all__'
 
+    barrel_shape = forms.ChoiceField(choices=Barrel.BARREL_SHAPES,
+                                     required=False)
+    stem_length = forms.ChoiceField(choices=Stem.STEM_LENGTHS, required=False)
+    flight_shape = forms.ChoiceField(choices=Flight.FLIGHT_SHAPES,
+                                     required=False)
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         categories = Category.objects.all()
@@ -18,30 +24,21 @@ class ProductForm(forms.ModelForm):
         for field_name, field in self.fields.items():
             field.widget.attrs['class'] = 'border-black rounded white black'
 
+    def clean(self):
+        cleaned_data = super().clean()
+        category = cleaned_data.get('category')
 
-    # def __init__(self, *args, **kwargs):
-    #     super().__init__(*args, **kwargs)
-    #     categories = Category.objects.all()
-    #     barrels = Barrel.objects.all()
-    #     flights = Flight.objects.all()
-    #     stems  = Stem.objects.all()
-    #     friendly_names = [(c.id, c.get_friendly_name()) for c in categories]
+        if category and category.name == 'Barrel':
+            if not cleaned_data.get('barrel_shape'):
+                self.add_error('barrel_shape',
+                               'This field is required for Barrels.')
+        elif category and category.name == 'Shafts':
+            if not cleaned_data.get('stem_length'):
+                self.add_error('stem_length',
+                               'This field is required for Shafts.')
+        elif category and category.name == 'Flights':
+            if not cleaned_data.get('flight_shape'):
+                self.add_error('flight_shape',
+                               'This field is required for Flights.')
 
-    #     self.fields['category'].choices = friendly_names
-    #     self.fields['barrels'] = forms.ChoiceField(
-    #         choices=[
-    #             (b.id, b.get_shape_display()) for b in Barrel.objects.all()
-    #             ]
-    #     )
-    #     self.fields['flights'] = forms.ChoiceField(
-    #         choices=[
-    #             (f.id, f.get_shape_display()) for f in Flight.objects.all()
-    #             ]
-    #     )
-    #     self.fields['stems'] = forms.ChoiceField(
-    #         choices=[
-    #             (s.id, s.get_length_display()) for s in Stem.objects.all()
-    #             ]
-    #     )
-    #     for field_name, field in self.fields.items():
-    #         field.widget.attrs['class'] = 'border-black rounded'
+        return cleaned_data

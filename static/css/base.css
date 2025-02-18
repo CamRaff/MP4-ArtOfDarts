@@ -176,6 +176,15 @@ input::placeholder {
     color: #f2edd5 !important;
 }
 
+#add-product-form:option {
+    background-color: black !important;
+    -webkit-tap-highlight-color: black !important;
+}
+
+.form-control:focus {
+    background-color: black !important;
+}
+
 /* edit to push body down and change h1 size */
 @media screen and (max-width: 990px) {
     body {

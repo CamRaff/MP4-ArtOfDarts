@@ -23,12 +23,92 @@
                 <form action="{% url 'add_product' %}" method="POST" id="add-product-form" class="white form mb-2 rounded shadow p-2" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form|crispy }}
+                    <!-- Dynamically show appropriate fields for adding products -->
+                    <!-- <div id="barrel-fields" style="display:none;">
+                        {{ form.barrel_shape }}
+                      </div>
+                    
+                      <div id="stem-fields" style="display:none;">
+                        {{ form.stem_length }}
+                      </div>
+                    
+                      <div id="flight-fields" style="display:none;">
+                        {{ form.flight_shape }}
+                      </div>                     -->
                     <div class="text-right">
                         <a href="{% url 'products' %}" class="btn rounded white">Cancel</a>
-                        <button class="btn white rounded p-2 float-right mb-2" type="submit"><u>Add Product</u></button>
+                        <button class="btn white rounded float-right p-2 mb-2" type="submit"><u>Add Product</u></button>
                     </div>
                 </form>
             </div>
         </div>
     </div>
+{% endblock %}
+
+{% block postloadjs %}
+{{ block.super }}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categorySelect = document.querySelector('[name="category"]'); // Ensure the name matches the select element in HTML
+
+        // Check if categorySelect is correctly selected
+        console.log('Category Select Element:', categorySelect);
+
+        // Initialize on page load to show/hide fields based on the current category selection
+        toggleFields(categorySelect.value);
+
+        categorySelect.addEventListener('change', function() {
+            const category = categorySelect.value;
+            console.log('Selected Category:', category); // Log the selected category for debugging
+            toggleFields(category);
+        });
+
+        function toggleFields(category) {
+            console.log('Toggling fields for category:', category); // Log the category being passed to toggleFields
+
+            // Hide all fields initially
+            document.getElementById('div_id_barrel_shape').style.display = 'none';
+            document.getElementById('div_id_stem_length').style.display = 'none';
+            document.getElementById('div_id_flight_shape').style.display = 'none';
+
+            // Show the appropriate fieldset based on the selected category
+            if (category === '1') {
+                document.getElementById('div_id_barrel_shape').style.display = 'block';
+            } else if (category === '3') {
+                document.getElementById('div_id_stem_length').style.display = 'block';
+            } else if (category === '2') {
+                document.getElementById('div_id_flight_shape').style.display = 'block';
+            }
+        }
+    });
+</script>
+
+
+<!-- <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const categorySelect = document.querySelector('[name="category"]');
+
+    toggleFields(categorySelect.value);
+
+      
+    categorySelect.addEventListener('change', function() {
+        const category = categorySelect.value;
+        toggleFields(category);
+    });
+  
+    function toggleFields(category) {
+        document.getElementById('barrel-fields').style.display = 'none';
+        document.getElementById('stem-fields').style.display = 'none';
+        document.getElementById('flight-fields').style.display = 'none';
+
+        if (category === 'Barrels') {
+            document.getElementById('barrel-fields').style.display = 'block';
+        } else if (category === 'Shafts') {
+            document.getElementById('stem-fields').style.display = 'block';
+        } else if (category === 'Flights') {
+            document.getElementById('flight-fields').style.display = 'block';
+        }
+    }
+    });
+</script> -->
 {% endblock %}
