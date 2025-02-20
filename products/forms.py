@@ -1,5 +1,6 @@
 from django import forms
 from .models import Product, Category, Barrel, Flight, Stem
+from .widgets import CustomClearableFileInput
 
 
 class ProductForm(forms.ModelForm):
@@ -8,6 +9,9 @@ class ProductForm(forms.ModelForm):
     class Meta:
         model = Product
         fields = '__all__'
+
+    image = forms.ImageField(label='Image', required=False,
+                             widget=CustomClearableFileInput)
 
     barrel_shape = forms.ChoiceField(choices=Barrel.BARREL_SHAPES,
                                      required=False)

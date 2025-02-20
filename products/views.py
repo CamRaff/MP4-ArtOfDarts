@@ -135,6 +135,7 @@ def add_product(request):
 
 def get_product_subclass(product):  # For editing a product
     """ Ensure we retrieve the correct subclass instance """
+
     if Barrel.objects.filter(pk=product.pk).exists():
         return Barrel.objects.get(pk=product.pk)
     elif Stem.objects.filter(pk=product.pk).exists():
