@@ -36,14 +36,9 @@ class ProductForm(forms.ModelForm):
         """
         category = self.cleaned_data.get('category')
 
-        print(f"Category selected: {category}")  # Debugging
-
         if category:
             # Collect common fields
             category_name = category.name.lower()
-
-            # Debugging
-            print(f"Category name after conversion: {category_name}")
 
             common_fields = {
                 "name": self.cleaned_data.get('name'),
@@ -55,9 +50,6 @@ class ProductForm(forms.ModelForm):
                 "image_url": self.cleaned_data.get('image_url'),
                 "category": category,
             }
-
-            # Debugging
-            print(f"Common fields: {common_fields}")
 
             if self.instance.pk:
                 # Get the existing instance based on subclass

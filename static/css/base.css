@@ -185,6 +185,34 @@ input::placeholder {
     background-color: black !important;
 }
 
+/* Custom CSS for the widget */
+
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-file input[type="file"] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.custom-checkbox .custom-control-label::before {
+    border-color: #f2edd5;
+    border-radius: 0;
+}
+
+.custom-checkbox .custom-control-input:checked~.custom-control-label::before {
+    background-color: #4db057;
+    border-color: #f2edd5;
+    border-radius: 0;
+}
+
 /* edit to push body down and change h1 size */
 @media screen and (max-width: 990px) {
     body {

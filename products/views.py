@@ -162,11 +162,10 @@ def edit_product(request, product_id):
                            instance=product_subclass)
 
         if form.is_valid():
-            print(f'DEBUG: Before saving, Instance PK: \
-                  {form.instance.pk}, ID: {form.instance.id}')
-            form.save()
-            print(f'DEBUG: After saving, Instance PK: \
-                  {form.instance.pk}, ID: {form.instance.id}')
+            product = form.save(commit=False)
+            if 'image-clear' in request.POST:
+                product.image = 'noimage.png'
+            product.save()
             messages.success(request, f'Successfully updated {product.name}')
             return redirect(reverse('product_details', args=[product.id]))
         else:
