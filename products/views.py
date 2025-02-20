@@ -3,7 +3,7 @@ from django.contrib import messages
 from django.db.models import Q
 from django.db.models.functions import Lower
 
-from .models import Product, Category
+from .models import Product, Category, Barrel, Stem, Flight
 from .forms import ProductForm
 
 
@@ -125,3 +125,77 @@ def add_product(request):
     }
 
     return render(request, template, context)
+
+
+def get_product_subclass(product):
+    """ Ensure we retrieve the correct subclass instance """
+    if Barrel.objects.filter(pk=product.pk).exists():
+        return Barrel.objects.get(pk=product.pk)
+    elif Stem.objects.filter(pk=product.pk).exists():
+        return Stem.objects.get(pk=product.pk)
+    elif Flight.objects.filter(pk=product.pk).exists():
+        return Flight.objects.get(pk=product.pk)
+    return product  # If it's a base Product, return as-is
+
+
+def edit_product(request, product_id):
+    """ Edit a product in the store """
+    # Get the correct subclass instance
+    product = get_object_or_404(Product, pk=product_id)
+    product_subclass = get_product_subclass(product)
+
+    if request.method == 'POST':
+        form = ProductForm(request.POST, request.FILES,
+                           instance=product_subclass)
+
+        if form.is_valid():
+            print(f'DEBUG: Before saving, Instance PK: \
+                  {form.instance.pk}, ID: {form.instance.id}')
+            form.save()
+            print(f'DEBUG: After saving, Instance PK: \
+                  {form.instance.pk}, ID: {form.instance.id}')
+            messages.success(request, f'Successfully updated {product.name}')
+            return redirect(reverse('product_details', args=[product.id]))
+        else:
+            messages.error(request,
+                           'Failed to update product. \
+                            Please ensure the form is valid.')
+    else:
+        form = ProductForm(instance=product_subclass)
+        messages.info(request, f'You are about to edit {product.name}')
+
+    template = 'products/edit_product.html'
+    context = {
+        'form': form,
+        'product': product_subclass,
+    }
+
+    return render(request, template, context)
+
+
+# def edit_product(request, product_id):
+#     """ Edit a product in the store """
+#     product = get_object_or_404(Product, pk=product_id)
+#     if request.method == 'POST':
+#         form = ProductForm(request.POST, request.FILES, instance=product)
+
+#         print(f'Form instance before saving: {form.instance}')
+
+#         if form.is_valid():
+#             form.save()
+#             messages.success(request, f'Successfully updated {product.name}')
+#             return redirect(reverse('product_details', args=[product.id]))
+#         else:
+#             messages.error(request, 'Failed to update product. \
+#                 Please ensure the form is valid.')
+#     else:
+#         form = ProductForm(instance=product)
+#         messages.info(request, f'You are about to edit {product.name}')
+
+#     template = 'products/edit_product.html'
+#     context = {
+#         'form': form,
+#         'product': product,
+#     }
+
+#     return render(request, template, context)

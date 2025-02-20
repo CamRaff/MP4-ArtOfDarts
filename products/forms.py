@@ -30,7 +30,6 @@ class ProductForm(forms.ModelForm):
         Override the save method to ensure the product is saved
         as the correct subclass (Barrel, Stem, or Flight)
         """
-        product = super().save(commit=False)  # Create product instance but don’t save yet
         category = self.cleaned_data.get('category')
 
         print(f"Category selected: {category}")  # Debugging
@@ -39,7 +38,8 @@ class ProductForm(forms.ModelForm):
             # Collect common fields
             category_name = category.name.lower()
 
-            print(f"Category name after conversion: {category_name}")  # Debugging
+            # Debugging
+            print(f"Category name after conversion: {category_name}")
 
             common_fields = {
                 "name": self.cleaned_data.get('name'),
@@ -52,83 +52,56 @@ class ProductForm(forms.ModelForm):
                 "category": category,
             }
 
-            print(f"Common fields: {common_fields}")  # Debugging
+            # Debugging
+            print(f"Common fields: {common_fields}")
+
+            if self.instance.pk:
+                # Get the existing instance based on subclass
+                if isinstance(self.instance, Barrel):
+                    print("Updating Barrel instance...")
+                    for key, value in common_fields.items():
+                        setattr(self.instance, key, value)
+                    self.instance.barrel_shape = (
+                        self.cleaned_data.get('barrel_shape'))
+                    self.instance.save()
+                    return self.instance
+
+                elif isinstance(self.instance, Stem):
+                    print("Updating Stem instance...")
+                    for key, value in common_fields.items():
+                        setattr(self.instance, key, value)
+                    self.instance.stem_length = (
+                        self.cleaned_data.get('stem_length'))
+                    self.instance.save()
+                    return self.instance
+
+                elif isinstance(self.instance, Flight):
+                    print("Updating Flight instance...")
+                    for key, value in common_fields.items():
+                        setattr(self.instance, key, value)
+                    self.instance.flight_shape = (
+                        self.cleaned_data.get('flight_shape'))
+                    self.instance.save()
+                    return self.instance
 
             # Check which subclass should be created
             if category_name == 'barrels':
                 print("Creating Barrel instance...")
-                return Barrel.objects.create(**common_fields, barrel_shape=self.cleaned_data.get('barrel_shape'))
+                return Barrel.objects.create(
+                    **common_fields,
+                    barrel_shape=self.cleaned_data.get('barrel_shape'))
             elif category_name == 'shafts':
                 print("Creating Stem instance...")
-                return Stem.objects.create(**common_fields, stem_length=self.cleaned_data.get('stem_length'))
+                return Stem.objects.create(
+                    **common_fields,
+                    stem_length=self.cleaned_data.get('stem_length'))
             elif category_name == 'flights':
                 print("Creating Flight instance...")
-                return Flight.objects.create(**common_fields, flight_shape=self.cleaned_data.get('flight_shape'))
+                return Flight.objects.create(
+                    **common_fields,
+                    flight_shape=self.cleaned_data.get('flight_shape'))
             else:
                 print("Unknown category, saving as Product.")
 
         # If no category is selected, save as a generic Product
         return super().save(commit)
-
-
-        # if category:
-        #     if category.name == 'Barrels':
-        #         product = Barrel.objects.create(
-        #             name=product.name,
-        #             description=product.description,
-        #             price=product.price,
-        #             rating=product.rating,
-        #             sku=product.sku,
-        #             image=product.image,
-        #             image_url=product.image_url,
-        #             category=category,
-        #             barrel_shape=self.cleaned_data.get('barrel_shape')
-        #         )
-        #     elif category.name == 'Shafts':
-        #         product = Stem.objects.create(
-        #             name=product.name,
-        #             description=product.description,
-        #             price=product.price,
-        #             rating=product.rating,
-        #             sku=product.sku,
-        #             image=product.image,
-        #             image_url=product.image_url,
-        #             category=category,
-        #             stem_length=self.cleaned_data.get('stem_length')
-        #         )
-        #     elif category.name == 'Flights':
-        #         product = Flight.objects.create(
-        #             name=product.name,
-        #             description=product.description,
-        #             price=product.price,
-        #             rating=product.rating,
-        #             sku=product.sku,
-        #             image=product.image,
-        #             image_url=product.image_url,
-        #             category=category,
-        #             flight_shape=self.cleaned_data.get('flight_shape')
-        #         )
-
-        # if commit:
-        #     product.save()
-
-        # return product
-
-    # def clean(self):
-    #     cleaned_data = super().clean()
-    #     category = cleaned_data.get('category')
-
-    #     if category and category.name == 'Barrel':
-    #         if not cleaned_data.get('barrel_shape'):
-    #             self.add_error('barrel_shape',
-    #                            'This field is required for Barrels.')
-    #     elif category and category.name == 'Shafts':
-    #         if not cleaned_data.get('stem_length'):
-    #             self.add_error('stem_length',
-    #                            'This field is required for Shafts.')
-    #     elif category and category.name == 'Flights':
-    #         if not cleaned_data.get('flight_shape'):
-    #             self.add_error('flight_shape',
-    #                            'This field is required for Flights.')
-
-    #     return cleaned_data
