@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.db.models import Q
 from django.db.models.functions import Lower
 
@@ -104,8 +105,13 @@ def product_details(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def add_product(request):
     """ Add a product to the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
 
     if request.method == 'POST':
         form = ProductForm(request.POST, request.FILES)
@@ -138,8 +144,14 @@ def get_product_subclass(product):  # For editing a product
     return product  # If it's a base Product, return as-is
 
 
+@login_required
 def edit_product(request, product_id):
     """ Edit a product in the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     # Get the correct subclass instance
     product = get_object_or_404(Product, pk=product_id)
     product_subclass = get_product_subclass(product)
@@ -173,8 +185,14 @@ def edit_product(request, product_id):
     return render(request, template, context)
 
 
+@login_required
 def delete_product(request, product_id):
     """ Delete a product from the store """
+
+    if not request.user.is_superuser:
+        messages.error(request, 'Sorry, only store owners can do that.')
+        return redirect(reverse('home'))
+
     product = get_object_or_404(Product, pk=product_id)
     product.delete()
     messages.success(request, f'{product.name} has been deleted!')
