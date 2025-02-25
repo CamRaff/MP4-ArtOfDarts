@@ -50,13 +50,6 @@ class ProductViewsTest(TestCase):
             'barrel_shape': 'Tapered',
         })
 
-        # If not a redirect, check for form errors
-        if response.status_code != 302:
-            # Print response content
-            print("Response content:", response.content)
-            # Print form errors if available
-            print("Form errors:", response.context.get('form').errors)
-
         self.assertEqual(response.status_code, 302)  # Expect a redirect
         self.assertRedirects(response,
                              reverse('product_details',
@@ -74,13 +67,6 @@ class ProductViewsTest(TestCase):
             'category': self.category.id,
             'barrel_shape': 'Tapered',
         })
-
-        # If not a redirect, check for form errors
-        if response.status_code != 302:
-            # Print the response content
-            print("Response content:", response.content)
-            # Print form errors if available
-            print("Form errors:", response.context.get('form').errors)
 
         self.assertEqual(response.status_code, 302)  # Expect a redirect
         self.assertRedirects(response, reverse('product_details',
