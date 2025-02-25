@@ -24,7 +24,7 @@ def cache_checkout_data(request):
         stripe.PaymentIntent.modify(pid, metadata={
             'bag': json.dumps(request.session.get('bag', {})),
             'save_info': request.POST.get('save_info'),
-            'username': request.user,
+            'username': str(request.user),
         })
         return HttpResponse(status=200)
     except Exception as e:
@@ -38,7 +38,6 @@ def checkout(request):
     A view that renders the checkout page,
     and its functionality
     """
-
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
 
