@@ -1,7 +1,5 @@
 from django.db import models
 
-# Create your models here.
-
 
 class Category(models.Model):
     """ Product categories model like 'Barrels', 'Flights', 'Shafts' """
