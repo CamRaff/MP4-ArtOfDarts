@@ -37,10 +37,6 @@ class CheckoutViewsTest(TestCase):
             {"client_secret": "pi_123456789_secret_test", "save_info": "true"},
         )
 
-        print("Response Status Code:", response.status_code)
-        print("Response Content:", response.content.decode())
-        print("Was PaymentIntent.modify called?", mock_modify.called)
-
         mock_modify.assert_called_once_with(
             "pi_123456789",
             metadata={
