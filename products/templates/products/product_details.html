@@ -17,11 +17,11 @@
                 <div class="image-container shadow my-5">
                     {% if product.image %}
                         <a href="{{ product.image.url }}" target="_blank">
-                            <img class="card-img-top img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
+                            <img class="card-img img-fluid" src="{{ product.image.url }}" alt="{{ product.name }}">
                         </a>
                     {% else %}
                         <a href="">
-                            <img class="card-img-top img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
+                            <img class="card-img img-fluid" src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}">
                         </a>
                     {% endif %}
                 </div>
@@ -91,7 +91,7 @@
                 </div>
             </div>
         </div>
-        <div class="row product-padding"></div>
+        <!-- <div class="row product-padding"></div> -->
     </div>
     <div class="modal fade" id="deleteConfirmModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -112,7 +112,6 @@
             </div>
         </div>
     </div>
-    {% include 'includes/footer.html' %}
 {% endblock %}
 
 {% block postloadjs %}

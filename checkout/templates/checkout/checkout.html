@@ -36,14 +36,6 @@
                     </div>
                 </div>
                 <div class="order-box rounded p-2">
-                    <!-- <div class="row shadow">
-                        <div class="col-7 offset-2">
-                            <p class="mb-1 mt-1 small text-muted white">Item(s)</p>
-                        </div>
-                        <div class="col-3 text-right">
-                            <p class="mb-1 mt-1 small text-muted white">Subtotal</p>
-                        </div>
-                    </div> -->
                     {% for item in bag_items %}
                         <div class="row shadow pt-2 pb-2">
                             <div class="col-2 mb-1">
@@ -148,7 +140,6 @@
             </span>
         </h1>
     </div>
-<!-- {% include 'includes/footer.html' %} -->
 {% endblock %}
 
 {% block postloadjs %}

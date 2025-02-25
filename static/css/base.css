@@ -39,6 +39,10 @@ body {
     background-color: black !important;
 }
 
+.card-img {
+    max-height: 60vh;
+}
+
 /* from Bulma for icons */
 .icon {
     align-items: center;
@@ -334,10 +338,6 @@ input::placeholder {
 
     .checkout-btn {
         font-size: .6rem;
-    }
-
-    .qty-input {
-        max-width: 25px;
     }
 
     .input-group {
