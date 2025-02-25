@@ -100,7 +100,7 @@
                                 <input type="checkbox" class="form-check-input ml-2 mr-2" id="id-save-info" name="save-info" checked>
                                 <label class="form-check-label white pr-1" for="id_save-info">Save this delivery information to my profile</label>
                             {% else %}
-                                <label for="id_save_info" class="form-check-label white shadow rounded px-2">
+                                <label for="id_save_info" class="form-check-label white rounded px-2">
                                     <a href="{% url 'account_signup' %}" class="text-success">Create an account</a> or
                                     <a href="{% url 'account_login' %}" class="text-success">log in</a> to save this information
                                 </label>
@@ -123,13 +123,13 @@
                         <span class="">Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                     </p>
                     <div class="text-right mt-2 mb-2">
-                        <a href="{% url 'view_bag' %}" class="btn shadow rounded white float-left">
+                        <a href="{% url 'view_bag' %}" class="btn shadow rounded white float-left checkout-btn">
                             <span class="icon">
                                 <i class="fas fa-chevron-left white"></i>
                             </span>
                             <span class="font-weight-bold">Adjust your bag</span>
                         </a>
-                        <button class="btn rounded shadow white" id="submit-button">
+                        <button class="btn rounded shadow white checkout-btn" id="submit-button">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
                                 <i class="fas fa-lock white"></i>

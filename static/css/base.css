@@ -293,6 +293,60 @@ input::placeholder {
     .home-container {
         padding-top: 15px;
     }
+
+    .display-4.logo-font.white {
+        font-size: 2rem;
+    }
+
+    .nav-link {
+        padding: 0.15rem;
+    }
+
+    .nav-link i.fa-lg {
+        font-size: 1rem;
+    }
+
+    .navbar-toggler {
+        padding: .6rem .6rem;
+        font-size: 1rem;
+    }
+
+    #delivery-banner h4 {
+        font-size: .9rem;
+    }
+
+    .btn.border-black, .btn.add-back {
+        padding: .357rem .357rem;
+        font-size: .75rem;
+    }
+
+    .bag-table {
+        font-size: .6rem;
+    }
+
+    .increment-qty.btn-sm, .decrement-qty.btn-sm {
+        font-size: .5rem !important;
+    }
+
+    .bag-amount {
+        font-size: .45rem;
+    }
+
+    .checkout-btn {
+        font-size: .6rem;
+    }
+
+    .qty-input {
+        max-width: 25px;
+    }
+
+    .input-group {
+        width: 80% !important;
+    }
+
+    .bag-th {
+        font-size: .5rem;
+    }
 }
 
 @media (max-width: 520px) {
