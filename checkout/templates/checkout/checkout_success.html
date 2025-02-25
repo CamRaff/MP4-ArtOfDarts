@@ -153,14 +153,14 @@
         <div class="row">
             <div class="col-12 col-lg-7 text-right">
                 {% if from_profile %}
-                    <a href="{% url 'profile' %}" class="btn rounded my-2 white shadow">
+                    <a href="{% url 'profile' %}" class="btn rounded my-2 white shadow" aria-label="Back to Profile">
                         <span class="icon">
                             <i class="fa-brands fa-dart-lang white"></i>
                         </span>
                         <span class="text-uppercase white btn ml-0">Back to Profile</span>
                     </a>
                 {% else %}
-                    <a href="{% url 'products' %}" class="btn rounded my-2 white shadow">
+                    <a href="{% url 'products' %}" class="btn rounded my-2 white shadow" aria-label="Go to Products">
                         <span class="icon">
                             <i class="fa-brands fa-dart-lang white"></i>
                         </span>

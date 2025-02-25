@@ -54,7 +54,7 @@
                                                                 <div class="input-group-prepend">
                                                                     <button type="button"
                                                                     class="decrement-qty btn btn-sm border-black rounded white mr-1 shadow"
-                                                                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}">
+                                                                    data-item_id="{{ item.item_id }}" id="decrement-qty_{{ item.item_id }}" aria-label="Decrement quantity">
                                                                         <span>
                                                                             <i class="fas fa-sm fa-minus"></i>
                                                                         </span>
@@ -62,10 +62,10 @@
                                                                 </div>
                                                                 <input type="number"
                                                                 class="form-control qty-input form-control-sm white" name="quantity" value="{{ item.quantity }}" min="1" max="99"
-                                                                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}">
+                                                                data-item_id="{{ item.item_id }}" id="id_qty_{{ item.item_id }}" aria-label="Quantity">
                                                                 <div class="input-group-prepend">
                                                                     <button type="button" class="increment-qty btn btn-sm border-black rounded white shadow"
-                                                                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}">
+                                                                    data-item_id="{{ item.item_id }}" id="increment-qty_{{ item.item_id }}" aria-label="Increment quantity">
                                                                         <span>
                                                                             <i class="fas fa-sm fa-plus"></i>
                                                                         </span>
@@ -76,8 +76,8 @@
                                                     </div>
                                             </form>
                                             <div class="col bag-amount">
-                                                <a type="button" class="update-link white"><small>Update</small></a>
-                                                <a type="button" class="remove-item text-danger white float-right" id="remove_{{ item.product.id }}"><small>Remove All</small></a>
+                                                <a type="button" class="update-link white" aria-label="Update"><small>Update</small></a>
+                                                <a type="button" class="remove-item text-danger white float-right" id="remove_{{ item.product.id }}" aria-label="Remove all"><small>Remove All</small></a>
                                             </div>
                                         </td>
                                         <td class="p-2 bag-amount">£{{ item.product.price }}</td>
@@ -100,13 +100,13 @@
                         </table>
                         <div class="row">
                             <div class="col mb-5">
-                                <a href="{% url 'products' %}" class="btn border-black rounded white shadow">
+                                <a href="{% url 'products' %}" class="btn border-black rounded white shadow" aria-label="Back to Products">
                                     <span class="icon">
                                         <i class="fas fa-chevron-left"></i>
                                     </span>
                                     <span class="text-uppercase">Back !</span>
                                 </a>
-                                <a href="{% url 'checkout' %}" class="btn border-black rounded white shadow float-right">
+                                <a href="{% url 'checkout' %}" class="btn border-black rounded white shadow float-right" aria-label="Secure Checkout">
                                     <span class="icon">
                                         <i class="fas fa-lock"></i>
                                     </span>
@@ -117,7 +117,7 @@
                     </div>
                 {% else %}
                     <p class="lead mb-5 white shadow text-center">You haven't added anything to your bag! Go shopping!</p>
-                    <a href="{% url 'products' %}" class="btn border-black rounded white shadow">
+                    <a href="{% url 'products' %}" class="btn border-black rounded white shadow" aria-label="Back to Products">
                         <span class="icon">
                             <i class="fas fa-chevron-left"></i>
                         </span>

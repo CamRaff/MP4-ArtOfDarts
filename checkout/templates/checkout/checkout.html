@@ -39,11 +39,11 @@
                     {% for item in bag_items %}
                         <div class="row shadow pt-2 pb-2">
                             <div class="col-2 mb-1">
-                                <a href="{% url 'product_details' item.product.id %}">
+                                <a href="{% url 'product_details' item.product.id %}" aria-label="{{ item.product.name }}">
                                     {% if item.product.image %}
-                                        <img src="{{ item.product.image.url }}" alt="{{ product.name }}" class="w-100">
+                                        <img src="{{ item.product.image.url }}" alt="{{ item.product.name }}" class="w-100">
                                     {% else %}
-                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ product.name }}" class="w-100">
+                                        <img src="{{ MEDIA_URL }}noimage.png" alt="{{ item.product.name }}" class="w-100">
                                     {% endif %}
                                 </a>
                             </div>
@@ -89,12 +89,12 @@
                         {{ order_form.postcode | as_crispy_field }}
                         <div class="form-check form-check-inline float-right mr-0 shadow">
                             {% if user.is_authenticated %}
-                                <input type="checkbox" class="form-check-input ml-2 mr-2" id="id-save-info" name="save-info" checked>
+                                <input type="checkbox" class="form-check-input ml-2 mr-2" id="id-save-info" name="save-info" aria-label="Save info" checked>
                                 <label class="form-check-label white pr-1" for="id_save-info">Save this delivery information to my profile</label>
                             {% else %}
                                 <label for="id_save_info" class="form-check-label white rounded px-2">
-                                    <a href="{% url 'account_signup' %}" class="text-success">Create an account</a> or
-                                    <a href="{% url 'account_login' %}" class="text-success">log in</a> to save this information
+                                    <a href="{% url 'account_signup' %}" class="text-success" aria-label="Create account">Create an account</a> or
+                                    <a href="{% url 'account_login' %}" class="text-success" aria-label="Log in">log in</a> to save this information
                                 </label>
                             {% endif %}
                         </div>
@@ -115,13 +115,13 @@
                         <span class="">Your card will be charged <strong>£{{ grand_total|floatformat:2 }}</strong></span>
                     </p>
                     <div class="text-right mt-2 mb-2">
-                        <a href="{% url 'view_bag' %}" class="btn shadow rounded white float-left checkout-btn">
+                        <a href="{% url 'view_bag' %}" class="btn shadow rounded white float-left checkout-btn" aria-label="Adjust your bag">
                             <span class="icon">
                                 <i class="fas fa-chevron-left white"></i>
                             </span>
                             <span class="font-weight-bold">Adjust your bag</span>
                         </a>
-                        <button class="btn rounded shadow white checkout-btn" id="submit-button">
+                        <button class="btn rounded shadow white checkout-btn" id="submit-button" aria-label="Complete Order">
                             <span class="font-weight-bold">Complete Order</span>
                             <span class="icon">
                                 <i class="fas fa-lock white"></i>
