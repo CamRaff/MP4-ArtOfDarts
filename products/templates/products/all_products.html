@@ -33,7 +33,7 @@
                 <div class="row mt-1 mb-4">
                     <div class="col-12 col-md-8 my-auto order-last order-md-last d-flex justify-content-center justify-content-md-end">
                         <div class="sort-select-wrapper w-50">
-                            <select name="" id="sort-selector" class="custom-select custom-select-sm rounded border border-black white shadow" aria-label="Sort by">
+                            <select id="sort-selector" class="custom-select custom-select-sm rounded border border-black white shadow" aria-label="Sort by">
                                 <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %} aria-label="Default">Sort by...</option>
                                 <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %} aria-label="Price low">Price (low to high)</option>
                                 <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %} aria-label="Price high">Price (high to low)</option>

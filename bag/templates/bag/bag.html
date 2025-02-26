@@ -32,7 +32,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col" class="bag-th">Product</th>
-                                    <th scope="col-sm-1" class="bag-th"></th>
+                                    <th scope="col" class="bag-th"></th>
                                     <th scope="col" class="bag-th">Qty</th>
                                     <th scope="col" class="bag-th">Price</th>
                                     <th scope="col" class="bag-th">Total</th>
@@ -79,11 +79,10 @@
                                                             </div>
                                                         </div>
                                                     </div>
+                                                </div>
                                             </form>
-                                            <div class="col bag-amount">
-                                                <a type="button" class="update-link white" aria-label="Update"><small>Update</small></a>
-                                                <a type="button" class="remove-item text-danger white float-right" id="remove_{{ item.product.id }}" aria-label="Remove all"><small>Remove All</small></a>
-                                            </div>
+                                            <a class="update-link white" aria-label="Update"><small>Update</small></a>
+                                            <a class="remove-item text-danger white float-right" id="remove_{{ item.product.id }}" aria-label="Remove all"><small>Remove All</small></a>
                                         </td>
                                         <td class="p-2 bag-amount">£{{ item.product.price }}</td>
                                         <td class="p-2 bag-amount">£{{ item.product.price | calc_subtotal:item.quantity }}</td>
@@ -140,7 +139,7 @@
 <script type="text/javascript">
     $('.update-link').click(function(e) {
         e.preventDefault();
-        var form = $(this).closest('.update-form');
+        var form = $(this).prev('.update-form');
         form.submit();
     })
 
