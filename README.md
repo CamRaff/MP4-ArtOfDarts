@@ -2,7 +2,7 @@
 
 ![displays]()
 
-Here is a link to my deployed site: []()
+Here is a link to my deployed site: [Rogues Den](https://art-of-darts-mp4-13da8fbba8de.herokuapp.com/)
 
 For my fourth and final project on my course with Code Institute via University Centre Peterborogh, I was tasked with creating a fully functional website that could be used as an e-commerce site, capable of allowing users to register and log in, save their details, search for and filter the items available, add to and view items in their bag, and finally complete their purchase. The site also requires superuser capability, allowing for store management and admin. 
 
@@ -23,6 +23,10 @@ I decided to create Art of Darts as a little bit of a passion project, as I have
 - [Design](#design)
 
     - [Typography](#typography)
+
+    - [Colour Sceheme](#colour-scheme)
+
+    - [Images](#images)
 
 ---
 
@@ -87,9 +91,11 @@ As this website was designed with darts fans in mind, I decided that I wanted th
 
 <img src="readme_images/green_dartboard.png" alt="hover colour" height="300">
 
-### Images
+## Images
 
-The background for this website was created by AI using [Chat GPT](#https://chatgpt.com/).
+### Backgrounds
+
+The background for this website was created by AI using [Chat GPT](https://chatgpt.com/).
 
 <img src="media/homebackground1.webp" alt="background image" height="400">
 
@@ -98,3 +104,7 @@ I like this image as it provides a nice futuristic vibe, and its colours are ver
 As the above background featured the dartboard over to the right hand side, I felt like the experience was lost stlightly on smaller devices, so I set a breakpoint of 700px, where I felt like the magic of the first image was lost, and set the below image as the background image for the site.
 
 <img src="media/homebackground2.webp" alt="background image two" height="300">
+
+### Site Stock
+
+For pictures of the stock on the website, I acquired the images from [Darts Corner](https://www.dartscorner.co.uk). 
