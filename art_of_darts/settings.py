@@ -239,4 +239,4 @@ else:
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-X_FRAME_OPTIONS = 'ALLOWALL'  # For responsive iframes
+X_FRAME_OPTIONS = 'DENY'  # For responsive iframes

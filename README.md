@@ -1,8 +1,8 @@
 # CamRaff - Milestone Project 4 - Art of Darts
 
-![displays]()
+![displays](readme_images/amiresponsive-displays.png)
 
-Here is a link to my deployed site: [Rogues Den](https://art-of-darts-mp4-13da8fbba8de.herokuapp.com/)
+Here is a link to my deployed site: [Art of Darts](https://art-of-darts-mp4-13da8fbba8de.herokuapp.com/)
 
 For my fourth and final project on my course with Code Institute via University Centre Peterborogh, I was tasked with creating a fully functional website that could be used as an e-commerce site, capable of allowing users to register and log in, save their details, search for and filter the items available, add to and view items in their bag, and finally complete their purchase. The site also requires superuser capability, allowing for store management and admin. 
 
