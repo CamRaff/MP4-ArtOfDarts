@@ -1,6 +1,11 @@
 {% extends "base.html" %}
 {% load static %}
 
+{% block extra_meta %}
+    <meta name="description" content="Art of Darts Checkout Success Page, your order has been placed!">
+    <meta name="keywords" content="Art of Darts, Darts, Checkout, Success, Order, Ecommerce, Barrels, Shafts, Flights, Accessories, Shop, Store">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}

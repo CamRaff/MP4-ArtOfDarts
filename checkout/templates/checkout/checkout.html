@@ -2,6 +2,11 @@
 {% load static %}
 {% load bagtools %}
 
+{% block extra_meta %}
+    <meta name="description" content="Art of Darts Checkout Page, complete your order here!">
+    <meta name="keywords" content="Art of Darts, Darts, Checkout, Purchase, Ecommerce, Barrels, Shafts, Flights, Accessories, Shop, Store">
+{% endblock %}
+
 {% block extra_css %}
     <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
