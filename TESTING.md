@@ -16,6 +16,18 @@ Here is a link to my deployed site: [Art of Darts](https://art-of-darts-mp4-13da
 
     - [JS Hint](#js-hint)
 
+    - [Python Validator](#python-validator)
+
+        - [Profiles App](#profiles-app)
+
+        - [Products App](#products-app)
+
+        - [Home App](#home-app)
+
+        - [Checkout App](#checkout-app)
+
+        - [Bag App](#bag-app)
+
 ---
 
 # Automated Testing
@@ -90,3 +102,153 @@ To test the CSS files used for this site, I used [CSS Jigsaw](https://jigsaw.w3.
 To test the JavaScript file used in the site, I used [JSHint](https://jshint.com/). The test results were as follows:
 
 <img src="readme_images/js-hint.png" height="300">
+
+## Python Validator
+
+To test the Python that I implemented in the site, I used the [CI Python Linter](https://pep8ci.herokuapp.com/). The results for each module were as follows:
+
+### Profiles App
+
+#### views.py
+
+<img src="readme_images/pylint/profiles/profiles-views.png" height="100">
+
+#### urls.py
+
+<img src="readme_images/pylint/profiles/profiles-urls.png" height="100">
+
+#### models.py
+
+<img src="readme_images/pylint/profiles/profiles-models.png" height="100">
+
+#### forms.py
+
+<img src="readme_images/pylint/profiles/profiles-forms.png" height="100">
+
+#### test_views.py
+
+<img src="readme_images/pylint/profiles/profiles-test-views.png" height="100">
+
+#### test_models.py
+
+<img src="readme_images/pylint/profiles/profiles-test-models.png" height="100">
+
+#### test_forms.py
+
+<img src="readme_images/pylint/profiles/profiles-test-forms.png" height="100">
+
+### Products App
+
+#### widgets.py
+
+<img src="readme_images/pylint/products/products-widgets.png" height="100">
+
+#### views.py
+
+<img src="readme_images/pylint/products/products-views.png" height="100">
+
+#### urls.py
+
+<img src="readme_images/pylint/products/products-urls.png" height="100">
+
+#### models.py
+
+<img src="readme_images/pylint/products/products-models.png" height="100">
+
+#### forms.py 
+
+<img src="readme_images/pylint/products/products-forms.png" height="100">
+
+#### admin.py
+
+<img src="readme_images/pylint/products/products-admin.png" height="100">
+
+#### test_views.py
+
+<img src="readme_images/pylint/products/products-test-views.png" height="100">
+
+#### test_models.py
+
+<img src="readme_images/pylint/products/products-test-models.png" height="100">
+
+#### test_forms.py
+
+<img src="readme_images/pylint/products/products-test-forms.png" height="100">
+
+### Home App
+
+#### views.py
+
+<img src="readme_images/pylint/home/home-views.png" height="100">
+
+#### urls.py
+
+<img src="readme_images/pylint/home/home-urls.png" height="100">
+
+### Checkout App
+
+#### webhooks.py
+
+<img src="readme_images/pylint/checkout/checkout-webhooks.png" height="100">
+
+#### webhook_handler.py
+
+<img src="readme_images/pylint/checkout/checkout-webhook-handler.png" height="100">
+
+#### views.py
+
+<img src="readme_images/pylint/checkout/checkout-views.png" height="100">
+
+#### urls.py
+
+<img src="readme_images/pylint/checkout/checkout-urls.png" height="100">
+
+#### signals.py
+
+<img src="readme_images/pylint/checkout/checkout-signals.png" height="100">
+
+#### models.py
+
+<img src="readme_images/pylint/checkout/checkout-models.png" height="100">
+
+#### forms.py
+
+<img src="readme_images/pylint/checkout/checkout-forms.png" height="100">
+
+#### apps.py
+
+<img src="readme_images/pylint/checkout/checkout-apps.png" height="100">
+
+#### admin.py
+
+<img src="readme_images/pylint/checkout/checkout-admin.png" height="100">
+
+#### test_views.py
+
+<img src="readme_images/pylint/checkout/checkout-test-views.png" height="100">
+
+#### test_models.py
+
+<img src="readme_images/pylint/checkout/checkout-test-models.png" height="100">
+
+#### test_forms.py
+
+<img src="readme_images/pylint/checkout/checkout-test-forms.png" height="100">
+
+### Bag App
+
+#### views.py
+
+<img src="readme_images/pylint/bag/bag-views.png" height="100">
+
+#### urls.py
+
+<img src="readme_images/pylint/bag/bag-urls.png" height="100">
+
+#### contexts.py
+
+<img src="readme_images/pylint/bag/bag-contexts.png" height="100">
+
+#### test_views.py
+
+<img src="readme_images/pylint/bag/bag-test-views.png" height="100">
