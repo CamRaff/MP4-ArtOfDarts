@@ -28,6 +28,8 @@ Here is a link to my deployed site: [Art of Darts](https://art-of-darts-mp4-13da
 
         - [Bag App](#bag-app)
 
+    - [Django Test Cases](#django-test-cases)
+
 ---
 
 # Automated Testing
@@ -252,3 +254,27 @@ To test the Python that I implemented in the site, I used the [CI Python Linter]
 #### test_views.py
 
 <img src="readme_images/pylint/bag/bag-test-views.png" height="100">
+
+## Django Test Cases
+
+After creating test files for the models, views and forms files in each app where necessary, I ran coverage to get a report for those apps. The results were as follows:
+
+### Profiles App - 99%
+
+<img src="readme_images/profiles-coverage.png" height="200">
+
+### Products App - 84%
+
+<img src="readme_images/products-coverage.png" height="200">
+
+### Home App - 100%
+
+<img src="readme_images/home-coverage.png" height="200">
+
+### Checkout App - 73%
+
+<img src="readme_images/checkout-coverage.png" height="200">
+
+### Bag App - 93%
+
+<img src="readme_images/bag-coverage.png" height="200">
