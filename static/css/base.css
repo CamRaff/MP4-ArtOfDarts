@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Trade+Winds&display=swap');
+
 html {
     height: 100vh;
 }
@@ -16,6 +18,9 @@ body {
     padding-top: 60px;
 }
 
+#id_remember {
+    display: none !important;
+}
 
 .product-padding {
     padding-bottom: 60px;

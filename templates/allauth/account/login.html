@@ -37,7 +37,7 @@ for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
   {% csrf_token %}
   {{ form|crispy }}
   {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}">
   {% endif %}
   <a href="{% url 'home' %}" class="btn rounded white"><u>To the darts!</u></a>
   <button class="primaryAction green white" type="submit">{% trans "Sign In" %}</button>

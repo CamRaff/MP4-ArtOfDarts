@@ -30,6 +30,22 @@ Here is a link to my deployed site: [Art of Darts](https://art-of-darts-mp4-13da
 
     - [Django Test Cases](#django-test-cases)
 
+    - [Lighthouse](#lighthouse)
+
+- [Manual Testing](#manual-testing)
+
+    - [User Stories](#user-stories)
+
+        - [Customer](#customer)
+
+        - [Site Owner/Admin](#site-owneradmin)
+
+    - [Site and Feature](#site-and-feature-testing)
+
+        -[Features](#features)
+
+    - [Bugs](#bugs)
+
 ---
 
 # Automated Testing
@@ -288,3 +304,194 @@ After creating test files for the models, views and forms files in each app wher
 ### Bag App - 93%
 
 <img src="readme_images/bag-coverage.png" height="200">
+
+## Lighthouse
+
+I used Lighthouse from [Google Dev Tools](https://developer.chrome.com/docs/) to test the performance, accessibility, best practices and SEO of the website on both desktop and mobile. All pages had a bit of an issue with best practices due to third party cookies from Stripe. This is unavoidable as it was necessary to have Stripe present on all pages for better security and fraud protection. Mobile pages seemed to struggle slightly with the layout shift, but this was a bootstrap issue. The results for all pages were as follows:
+
+### Home - Desktop
+
+<img src="readme_images/lighthouse/home-desktop.png" height="150">
+
+### Home - Mobile
+
+<img src="readme_images/lighthouse/home-mobile.png" height="150">
+
+### All Products - Desktop
+
+<img src="readme_images/lighthouse/all-products-desktop.png" height="150">
+
+### All Products - Mobile
+
+<img src="readme_images/lighthouse/all-products-mobile.png" height="150">
+
+### Product Details - Desktop
+
+<img src="readme_images/lighthouse/product-details-desktop.png" height="150">
+
+### Product Details - Mobile
+
+<img src="readme_images/lighthouse/product-details-mobile.png" height="150">
+
+### Bag - Desktop
+
+<img src="readme_images/lighthouse/bag-desktop.png" height="150">
+
+### Bag - Mobile
+
+<img src="readme_images/lighthouse/bag-mobile.png" height="150">
+
+### Checkout - Desktop
+
+<img src="readme_images/lighthouse/checkout-desktop.png" height="150">
+
+### Checkout - Mobile
+
+<img src="readme_images/lighthouse/checkout-mobile.png" height="150">
+
+### Checkout Success - Desktop
+
+<img src="readme_images/lighthouse/checkout-success-desktop.png" height="150">
+
+### Checkout Success - Mobile
+
+<img src="readme_images/lighthouse/checkout-success-mobile.png" height="150">
+
+### Profile - Desktop
+
+<img src="readme_images/lighthouse/profile-desktop.png" height="150">
+
+### Profile - Mobile
+
+<img src="readme_images/lighthouse/profile-mobile.png" height="150">
+
+### Add Product - Desktop 
+
+<img src="readme_images/lighthouse/add-product-desktop.png" height="150">
+
+### Add Product - Mobile
+
+<img src="readme_images/lighthouse/add-product-mobile.png" height="150">
+
+### Edit Product - Desktop 
+
+<img src="readme_images/lighthouse/edit-product-desktop.png" height="150">
+
+### Edit Product - Mobile
+
+<img src="readme_images/lighthouse/edit-product-mobile.png" height="150">
+
+---
+
+# Manual Testing
+
+## User Stories
+
+### Customer 
+
+| Goals | Outcome |
+| ----- | ----- |
+| Navigate the site easily. | Site navigation is simple, with links available to access relevant pages at all times. |
+| See a clear view of the products available with sizes if applicable.  | The products available are clearly displayed. |
+| Sort/filter my view to allow me to acquire what I am looking for quicker. | Sorting and filtering is simple, clear and straight forward. |
+| Have the ability to register for an account if I wish. | I can register for an account easily by accessing the 'My Account' drop down. |
+| Receive confirmation that my registration was a success. | I received a confirmation upon registration. |
+| Log in to a personalised user profile where I can save my details to make life easier for future purchases. | I am able to view my profile and save/update my details there. |
+| Be able to request a password reset incase I forget my password down the line. | There is an option for password resetting incase I forget mine. |
+| Be able to view my bag clearly from the home page. | My bag is visible when adding things from the home page. |
+| Have the ability to adjust quantities in my bag if I change my mind as to how much I would like. | I can adjust the amount of items I want easily when viewing my bag. |
+| Be able to checkout as a guest should I not wish to register for an account. | This is an option, though logging in is better. |
+| Easily input my details for the purchase and feel like my details are safe and secure. | The checkout process was swift and secure. |
+| Receive confirmation that my purchase was successful. | I received an email with my purchase details after I finished checking out. |
+
+### Site Owner/Admin
+
+| Goals | Outcome |
+| ----- | ----- |
+| Add products to the store. | The process is swift, functional and easily accessible in the 'My Account' dropdown. |
+| Edit any available products from the store. | This process is swift and functional, and accessible from the products page or the product details page. |
+| Delete products from the store when they are unavailable. | This process is swift and functional, and I receive a prompt making sure I am doing the correct thing. |
+
+## Site and Feature Testing
+
+All features of this site were tested extensively throughout development and post deployment to ensure full functionality throughout the process.
+
+It was tested on the following devices:
+
+- Mobile 
+
+    - iPhone 15 Pro Max
+
+- Laptop 
+
+    - MacBook Air M2 - 15 Inch
+
+- Monitor 
+
+    - MSI Pro 27 Inch
+
+Testing on browsers was conducted on the following: 
+
+- Safari
+
+- Chrome
+
+- Firefox
+
+### Features
+
+| Feature | Expected outcome | Action | Result |
+| ----- | ----- | ----- | ----- |
+| **Navigation** |
+| Search | Find related items | Used various search terms | Relevant items appeared |
+| Products | Get directed to relevant products | Clicked | Relevant products displayed |
+| Account | Register/Login displayed when unauthenticated | Clicked | Expected links appeared |
+| Account | Profile/Logout displayed when authenticated | Clicked | Expected links appeared |
+| Account | Product Management displayed when superuser | Clicked | Expected link appeared | 
+| Bag | No products and link to products when empty | Clicked | No products displayed and a link back to All Products view |
+| Bag | Products listed when added | Clicked | Relevant products displayed |
+| Responsiveness | Hamburger for products when on small screen | Changed screen size | Hamburger menu appears |
+| **Footer** | 
+| Link to GitHub | Link to my Github | Clicked | Taken to my GitHub |
+| **Home Page** |
+| Link to products | Taken to All Products view | Clicked | Taken to All Products view |
+| **All Products Page** | 
+| Sort | Sort items from drop down | Tested all variations | Shown relevant items based on the parameter set |
+| Back to top | Take back to top of page | Clicked | Page reloaded at the top |
+| Access product details | Taken to Product Details view | Clicked image | Taken to Product Details view |
+| Edit/Delete | Links visible when superuser | Logged in as superuser | Links visible |
+| **Product Details** |
+| Add | Add the item to bag | Clicked | Item added to bag | 
+| Qty input | Error for <0 and >99 | Entered amount | Error appears upon trying to add to bag | 
+| - Qty | Lower amount to 1 | Clicked | Quantity lowered to 1 and no lower |
+| + Qty | Increase to 99 | Clicked | Quantity increased to 99 and no higher |
+| Adding edited quantity | Add the changed quantity to the bag | Changed quantity and clicked add | Desired quantity added to bag |
+| Back button | Taken back to All Products view | Clicked | Taken back to All Products view |
+| **Bag** |
+| Update button | Update quantity in bag | Changed value and clicked update | Quantity updated and total value displayed |
+| - Qty | Lower amount to 1 | Clicked | Quantity lowered to 1 and no lower |
+| + Qty | Increase to 99 | Clicked | Quantity increased to 99 and no higher |
+| Remove button | Remove all of desired item from bag | Clicked | All of desired item removed |
+| Back button | Taken back to All Products view | Clicked | Taken back to All Products view |
+| Checkout button | Taken to Checkout view | Clicked | Taken to Checkout view |
+| Checkout from toast | Taken to Checkout view from toast | Clicked when toast visible | Taken to Checkout view |
+| **Checkout** |
+| Form validation | Prompted to fill in required details | Attempted checkout with empty fields | Prompts appear |
+| Save info checkbox if authenticated | Checkbox visible if authenticated | Went to checkout authenticated | Checkbox visible |
+| Login/Register if not authenticated | Options visible if unauthenticated | Attempted checkout unauthenticated | Options visible |
+| Payment validation | Prompted if incorrect values | Input bad values | Prompts appear |
+| **Checkout Success** |
+| Order confirmation | Order details visible on screen | Completed checkout | Order details visible |
+| Link to products | Taken to All Products View | Clicked | Taken to All Products View |
+| **Profile** |
+| View order history | Link to view full details | Clicked | Taken to view full order details |
+| Add delivery information | Add default delivery details | Input values | Details saved and visible |
+| Edit delivery information | Update delivery details | Changed available values and clicked update | Values changed and visible |
+| **Emails** | 
+| Email confirm | Confirm registration email received | Registered | Email received | 
+| Order confirmation | Order confirmation email received | Completed Checkout | Email received | 
+
+## Bugs
+
+No known bugs at this time.
+
