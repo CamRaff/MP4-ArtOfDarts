@@ -109,6 +109,16 @@ To test the JavaScript file used in the site, I used [JSHint](https://jshint.com
 
 To test the Python that I implemented in the site, I used the [CI Python Linter](https://pep8ci.herokuapp.com/). The results for each module were as follows:
 
+### Art of Darts
+
+#### settings.py
+
+<img src="readme_images/settings-pylint.png" height="100">
+
+#### urls.py
+
+<img src="readme_images/urls-pylint.png" height="100">
+
 ### Profiles App
 
 #### views.py
