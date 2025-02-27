@@ -250,7 +250,6 @@ I deployed this project on Heroku and the steps to do so were as follows:
     | EMAIL_HOST_PASS | PASS\* |
     | EMAIL_HOST_USER | USER\* |
     | SECRET_KEY | SECRET_KEY\* |
-    | USE_AWS | USE_AWS\* |
 
     \*Denotes a value that is specific to your app.
 7. Connect repository, allowing automating deployment. 
@@ -356,7 +355,7 @@ I deployed this project on Heroku and the steps to do so were as follows:
 
 # Local Development
 
-## Fork
+## Fork
 
 To fork this repository, follow these steps: 
 
@@ -383,7 +382,7 @@ To clone this repository, follow these steps:
 
 Please see [TESTING.md](TESTING.md) for all testing performed.
 
-# Credits 
+# Credits 
 
 ## Code 
 
