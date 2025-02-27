@@ -54,7 +54,7 @@ body {
 
 /* custom */
 .logo-font {
-    transform: uppercase;
+    text-transform: uppercase;
 }
 
 .main-logo-link {
@@ -180,7 +180,7 @@ input::placeholder {
     color: #f2edd5 !important;
 }
 
-#add-product-form:option {
+#add-product-form select {
     background-color: black !important;
     -webkit-tap-highlight-color: black !important;
 }
